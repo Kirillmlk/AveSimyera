@@ -1,0 +1,77 @@
+:root {
+  --font-weight-bold: 700;
+  --color-hero-btn-bg: #efefef;
+  --color-hero-btn-bg-hover: #ff009f;
+  --color-hero-btn-text: #373737;
+  --color-hero-btn-text-hover: #ffffff;
+}
+
+.t-descr {
+  font-family: 'TildaSans', Arial, sans-serif;
+  font-weight: 300;
+}
+
+.font-bold {
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+}
+
+.hero-btn {
+  background-color: var(--color-hero-btn-bg);
+  color: var(--color-hero-btn-text);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.hero-btn:hover,
+.hero-btn:focus-visible {
+  background-color: var(--color-hero-btn-bg-hover);
+  color: var(--color-hero-btn-text-hover);
+}
+
+.hero-fade {
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-fade-hidden {
+  opacity: 0;
+}
+
+.hero-bullets {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.hero-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hero-bullet-active {
+  background-color: #ffffff;
+}
+
+.main-hero-section {
+  height: 700px;
+}
+
+.hero-arrow-body {
+  width: 7px;
+}
+
+@media (max-width: 767px) {
+  .hero-arrow {
+    top: 60%;
+    margin-top: -12px;
+    width: 24px;
+    height: 24px;
+  }
+}
