@@ -1,0 +1,175 @@
+.catalog-section {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  column-gap: 40px;
+  align-items: flex-start;
+}
+
+.t-store__filter__input {
+  width: 100%;
+  border-radius: 9999px;
+  border: 1px solid #d4d4d4;
+  padding: 10px 36px 10px 14px;
+  font-size: 14px;
+}
+
+.t-store__search-icon {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.t-store__sort-select {
+  border-radius: 9999px;
+  border: 1px solid #d4d4d4;
+  padding: 10px 14px;
+  font-size: 14px;
+  background-color: #ffffff;
+}
+
+.catalog-sidebar-title {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.catalog-parts-list {
+  font-size: 14px;
+}
+
+.catalog-part {
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.catalog-part-active {
+  font-weight: 600;
+}
+
+.catalog-subpart {
+  padding-left: 14px;
+  font-size: 13px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.catalog-card {
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  padding: 16px;
+  text-align: center;
+}
+
+.catalog-card-img {
+  position: relative;
+  padding-bottom: 100%;
+  margin-bottom: 14px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+}
+
+.catalog-badge-new {
+  display: table-cell;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #ff4a4a;
+}
+
+.catalog-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.catalog-card-descr {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.catalog-card-price {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.catalog-card-old-price {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #9ca3af;
+  margin-left: 6px;
+}
+
+.catalog-card-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+}
+
+.catalog-btn-main {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 4px;
+  width: 130px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.catalog-btn-secondary {
+  border-radius: 4px;
+  width: 130px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  border: 1px solid #000000;
+  color: #000000;
+}
+
+@media (max-width: 1024px) {
+  .catalog-layout {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .catalog-section {
+    padding-top: 32px;
+    padding-bottom: 60px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .catalog-card {
+    padding: 12px;
+  }
+}
+
+

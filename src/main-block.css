@@ -7,8 +7,13 @@
 }
 
 .t-descr {
-  font-family: 'TildaSans', Arial, sans-serif;
-  font-weight: 300;
+  font-weight: 200;
+  color: #000000;
+}
+
+.t-descr_xxxl {
+  font-size: 30px;
+  line-height: 1.45;
 }
 
 .font-bold {
@@ -67,11 +72,29 @@
   width: 7px;
 }
 
+.main-promo {
+  padding-top: 105px;
+  padding-bottom: 60px;
+  margin-bottom: 75px;
+}
+
+
 @media (max-width: 767px) {
   .hero-arrow {
     top: 60%;
     margin-top: -12px;
     width: 24px;
     height: 24px;
+  }
+
+  .main-promo {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .t-descr_xxxl {
+    font-size: 22px;
   }
 }
