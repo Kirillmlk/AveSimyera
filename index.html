@@ -483,43 +483,79 @@
             alt="Пример работы крупным планом"
           />
         </div>
-        <div class="gallery__thumbs">
-          <div class="gallery__thumb-item">
-            <img
-              src="https://static.tildacdn.pub/tild3633-3133-4263-b335-653461396639/generated.jpg"
-              alt="Пример работы 1"
-            />
+        <div class="gallery__thumbs-wrapper">
+          <button
+            type="button"
+            class="gallery__arrow gallery__arrow_prev"
+            aria-label="Предыдущее изображение"
+          >
+            <svg viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
+              <polyline
+                fill="none"
+                stroke="#000000"
+                stroke-linejoin="butt"
+                stroke-linecap="butt"
+                stroke-width="1"
+                points="6.8,0.5 0.8,6.5 6.8,12.5"
+              ></polyline>
+            </svg>
+          </button>
+
+          <div class="gallery__thumbs">
+            <div class="gallery__thumb-item gallery__thumb-item_active">
+              <img
+                src="https://static.tildacdn.pub/tild3633-3133-4263-b335-653461396639/generated.jpg"
+                alt="Пример работы 1"
+              />
+            </div>
+            <div class="gallery__thumb-item">
+              <img
+                src="https://static.tildacdn.pub/tild3665-3565-4530-a661-316461613532/generated.jpg"
+                alt="Пример работы 2"
+              />
+            </div>
+            <div class="gallery__thumb-item">
+              <img
+                src="https://static.tildacdn.pub/tild6638-3963-4463-a235-343164633335/generated.jpg"
+                alt="Пример работы 3"
+              />
+            </div>
+            <div class="gallery__thumb-item">
+              <img
+                src="https://static.tildacdn.pub/tild3833-3438-4032-a661-363337613562/generated.jpg"
+                alt="Пример работы 4"
+              />
+            </div>
+            <div class="gallery__thumb-item">
+              <img
+                src="https://static.tildacdn.pub/tild3566-3464-4266-a133-653664333131/generated.jpg"
+                alt="Пример работы 5"
+              />
+            </div>
+            <div class="gallery__thumb-item">
+              <img
+                src="https://static.tildacdn.pub/tild3531-6466-4066-b830-306261333262/generated.jpg"
+                alt="Пример работы 6"
+              />
+            </div>
           </div>
-          <div class="gallery__thumb-item">
-            <img
-              src="https://static.tildacdn.pub/tild3665-3565-4530-a661-316461613532/generated.jpg"
-              alt="Пример работы 2"
-            />
-          </div>
-          <div class="gallery__thumb-item">
-            <img
-              src="https://static.tildacdn.pub/tild6638-3963-4463-a235-343164633335/generated.jpg"
-              alt="Пример работы 3"
-            />
-          </div>
-          <div class="gallery__thumb-item">
-            <img
-              src="https://static.tildacdn.pub/tild3833-3438-4032-a661-363337613562/generated.jpg"
-              alt="Пример работы 4"
-            />
-          </div>
-          <div class="gallery__thumb-item">
-            <img
-              src="https://static.tildacdn.pub/tild3566-3464-4266-a133-653664333131/generated.jpg"
-              alt="Пример работы 5"
-            />
-          </div>
-          <div class="gallery__thumb-item">
-            <img
-              src="https://static.tildacdn.pub/tild3531-6466-4066-b830-306261333262/generated.jpg"
-              alt="Пример работы 6"
-            />
-          </div>
+
+          <button
+            type="button"
+            class="gallery__arrow gallery__arrow_next"
+            aria-label="Следующее изображение"
+          >
+            <svg viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
+              <polyline
+                fill="none"
+                stroke="#000000"
+                stroke-linejoin="butt"
+                stroke-linecap="butt"
+                stroke-width="1"
+                points="0.5,0.5 6.5,6.5 0.5,12.5"
+              ></polyline>
+            </svg>
+          </button>
         </div>
       </div>
     </div>

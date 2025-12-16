@@ -182,17 +182,45 @@ if (subcategoryFilterButtons.length && catalogCards.length) {
 
 const galleryMainImg = document.querySelector('.gallery__main img')
 const galleryThumbImages = document.querySelectorAll('.gallery__thumb-item img')
+const galleryPrev = document.querySelector('.gallery__arrow_prev')
+const galleryNext = document.querySelector('.gallery__arrow_next')
 
 if (galleryMainImg && galleryThumbImages.length) {
-  galleryThumbImages.forEach((thumb) => {
-    thumb.addEventListener('click', () => {
-      const fullSrc = thumb.getAttribute('data-full') || thumb.src
-      galleryMainImg.src = fullSrc
+  let currentIndex = 0
 
-      galleryThumbImages.forEach((img) => {
-        img.parentElement?.classList.remove('gallery__thumb-item_active')
-      })
-      thumb.parentElement?.classList.add('gallery__thumb-item_active')
+  const setActiveSlide = (index) => {
+    const clampedIndex = (index + galleryThumbImages.length) % galleryThumbImages.length
+    const thumb = galleryThumbImages[clampedIndex]
+    const fullSrc = thumb.getAttribute('data-full') || thumb.src
+
+    galleryMainImg.src = fullSrc
+
+    galleryThumbImages.forEach((img) => {
+      img.parentElement?.classList.remove('gallery__thumb-item_active')
+    })
+    thumb.parentElement?.classList.add('gallery__thumb-item_active')
+
+    currentIndex = clampedIndex
+  }
+
+  galleryThumbImages.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+      setActiveSlide(index)
     })
   })
+
+  if (galleryPrev) {
+    galleryPrev.addEventListener('click', () => {
+      setActiveSlide(currentIndex - 1)
+    })
+  }
+
+  if (galleryNext) {
+    galleryNext.addEventListener('click', () => {
+      setActiveSlide(currentIndex + 1)
+    })
+  }
+
+  // начальное активное изображение
+  setActiveSlide(0)
 }
