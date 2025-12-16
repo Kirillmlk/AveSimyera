@@ -11,6 +11,7 @@
 @import "./showphoro.css";
 @import "./video-section.css";
 @import "./benefits.css";
+@import "./faq.css";
 
 .section-title__text {
   font-size: 20px;
