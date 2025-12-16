@@ -8,3 +8,13 @@
 @import "./header.css";
 @import "./main-block.css";
 @import "./category.css";
+@import "./showphoro.css";
+
+.section-title__text {
+  font-size: 20px;
+}
+
+.section-title__text b,
+.section-title__text strong {
+  font-weight: 700;
+}

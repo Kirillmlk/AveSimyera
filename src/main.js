@@ -179,3 +179,20 @@ if (subcategoryFilterButtons.length && catalogCards.length) {
     })
   })
 }
+
+const galleryMainImg = document.querySelector('.gallery__main img')
+const galleryThumbImages = document.querySelectorAll('.gallery__thumb-item img')
+
+if (galleryMainImg && galleryThumbImages.length) {
+  galleryThumbImages.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      const fullSrc = thumb.getAttribute('data-full') || thumb.src
+      galleryMainImg.src = fullSrc
+
+      galleryThumbImages.forEach((img) => {
+        img.parentElement?.classList.remove('gallery__thumb-item_active')
+      })
+      thumb.parentElement?.classList.add('gallery__thumb-item_active')
+    })
+  })
+}
