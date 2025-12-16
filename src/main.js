@@ -132,7 +132,6 @@ if (
 if (softGroupToggle && softGroupSublist && softGroupArrow) {
   softGroupToggle.addEventListener('click', () => {
     const isHidden = softGroupSublist.classList.toggle('hidden')
-    // закрыто — стрелка вправо, открыто — вниз
     softGroupArrow.classList.toggle('rotate-90', !isHidden)
   })
 }
@@ -140,7 +139,6 @@ if (softGroupToggle && softGroupSublist && softGroupArrow) {
 if (caseGroupToggle && caseGroupSublist && caseGroupArrow) {
   caseGroupToggle.addEventListener('click', () => {
     const isHidden = caseGroupSublist.classList.toggle('hidden')
-    // закрыто — стрелка вправо, открыто — вниз
     caseGroupArrow.classList.toggle('rotate-90', !isHidden)
   })
 }
@@ -170,7 +168,6 @@ if (subcategoryFilterButtons.length && catalogCards.length) {
       const value = button.getAttribute('data-subcategory-filter')
       if (!value) return
 
-      // подсветку для сабкатегорий пока не делаем, управляем только карточками
       catalogCards.forEach((card) => {
         const cardSub = card.getAttribute('data-subcategory')
         const shouldShow = cardSub === value
@@ -221,6 +218,21 @@ if (galleryMainImg && galleryThumbImages.length) {
     })
   }
 
-  // начальное активное изображение
   setActiveSlide(0)
+}
+
+const videoPlayButton = document.querySelector('.video-play-btn')
+const videoContainer = document.getElementById('video-container')
+const videoIframe = document.getElementById('video-iframe')
+
+if (videoPlayButton && videoContainer && videoIframe) {
+  const videoId = videoPlayButton.getAttribute('data-video-id')
+
+  videoPlayButton.addEventListener('click', () => {
+    if (videoId) {
+      videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`
+      videoContainer.classList.add('active')
+      videoPlayButton.style.display = 'none'
+    }
+  })
 }

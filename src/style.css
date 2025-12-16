@@ -9,6 +9,8 @@
 @import "./main-block.css";
 @import "./category.css";
 @import "./showphoro.css";
+@import "./video-section.css";
+@import "./benefits.css";
 
 .section-title__text {
   font-size: 20px;
