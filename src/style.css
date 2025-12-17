@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-@layer base {
-  body {
-    @apply bg-white text-slate-900;
-  }
-}
 @import "./header.css";
 @import "./main-block.css";
 @import "./category.css";
@@ -13,12 +8,3 @@
 @import "./benefits.css";
 @import "./faq.css";
 @import "./map.css";
-
-.section-title__text {
-  font-size: 20px;
-}
-
-.section-title__text b,
-.section-title__text strong {
-  font-weight: 700;
-}
