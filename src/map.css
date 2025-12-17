@@ -8,12 +8,10 @@
   }
 }
 
-/* Фон секции контактов */
 .contacts-bg {
   background-color: #292929;
 }
 
-/* Высота колонки с картой */
 .contacts-map-col {
   min-height: 640px;
 }

@@ -8,8 +8,3 @@
 @import "./benefits.css";
 @import "./faq.css";
 @import "./map.css";
-
-/* Футер */
-.footer-bar {
-  height: 70px;
-}
