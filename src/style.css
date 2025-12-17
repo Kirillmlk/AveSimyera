@@ -12,6 +12,7 @@
 @import "./video-section.css";
 @import "./benefits.css";
 @import "./faq.css";
+@import "./map.css";
 
 .section-title__text {
   font-size: 20px;
