@@ -238,3 +238,49 @@ if (videoPlayButton && videoContainer && videoIframe) {
     }
   })
 }
+
+// Smooth scroll for anchor links with custom duration
+const anchorLinks = document.querySelectorAll('a[href^="#"]')
+
+const smoothScrollTo = (targetY, duration = 1200) => {
+  const startY = window.scrollY || window.pageYOffset
+  const distance = targetY - startY
+  let startTime = null
+
+  const step = (timestamp) => {
+    if (startTime === null) startTime = timestamp
+    const elapsed = timestamp - startTime
+    const progress = Math.min(elapsed / duration, 1)
+    // easeOutCubic
+    const ease = 1 - Math.pow(1 - progress, 3)
+    window.scrollTo(0, startY + distance * ease)
+    if (progress < 1) {
+      window.requestAnimationFrame(step)
+    }
+  }
+
+  window.requestAnimationFrame(step)
+}
+
+anchorLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const href = link.getAttribute('href')
+    if (!href || !href.startsWith('#')) return
+    const id = href.slice(1)
+    if (!id) return
+    const target = document.getElementById(id)
+    if (!target) return
+
+    event.preventDefault()
+    const rect = target.getBoundingClientRect()
+    const targetY = window.pageYOffset + rect.top
+    smoothScrollTo(targetY, 1400)
+
+    // optionally close mobile menu if open
+    if (menu && toggle && !menu.classList.contains('hidden')) {
+      toggle.classList.remove('t-menuburger_opened')
+      menu.classList.add('hidden')
+      toggle.setAttribute('aria-expanded', 'false')
+    }
+  })
+})
