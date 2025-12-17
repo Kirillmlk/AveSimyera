@@ -1,33 +1,3 @@
-.header-link {
-  font-size: 18px;
-  color: #000000;
-  font-weight: 400;
-  text-decoration: none;
-}
-
-.header-phone {
-  white-space: nowrap;
-  font-size: 18px;
-  color: #000000;
-  text-decoration: none;
-}
-
-@media (max-width: 767px) {
-  header {
-    background-color: #000000 !important;
-    border-bottom-color: #000000 !important;
-  }
-
-  header .header-link,
-  header .header-phone {
-    color: #ffffff !important;
-  }
-
-  .header-logo {
-    display: none !important;
-  }
-}
-
 .t-menuburger {
   position: relative;
   width: 30px;
@@ -74,13 +44,3 @@
 .t-menuburger_opened span:nth-child(3) {
   transform: translateY(-50%) rotate(-45deg);
 }
-
-@media (max-width: 980px) {
-  #mobile-menu .header-link {
-    display: block;
-    text-align: center;
-    padding: 10px 0;
-    white-space: normal;
-  }
-}
-
