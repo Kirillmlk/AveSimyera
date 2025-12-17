@@ -227,18 +227,18 @@
     </div>
 </section>
 
-<section id="catalog" class="catalog-section">
+<section id="catalog" class="pt-8 pb-16 md:pt-10 md:pb-32">
     <div class="mx-auto px-10">
-        <div class="catalog-search-sort t-store__filter__search-and-sort flex justify-end items-center gap-x-6 gap-y-4 mb-2.5">
-            <div class="t-store__filter__search t-descr t-descr_xxs font-extralight">
-                <div class="t-store__search-wrapper">
+        <div class="flex justify-end items-center gap-x-6 gap-y-4 mb-2.5">
+            <div class="text-xs font-extralight">
+                <div class="relative">
                     <input
                             type="text"
                             name="query"
-                            class="t-store__filter__input"
+                            class="w-full rounded-full border border-neutral-300 py-2.5 pl-3 pr-9 text-sm"
                             placeholder="Поиск"
                     />
-                    <span class="t-store__search-icon">
+                    <span class="absolute inset-y-0 right-3 flex items-center">
                 <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 88 88"
@@ -254,26 +254,27 @@
                 </div>
             </div>
 
-            <div class="t-store__filter__sort">
-                <div class="t-store__sort-select-wrapper">
-                    <select name="sort" class="t-store__sort-select t-descr t-descr_xxs font-extralight">
-                        <option value="">Порядок: по умолчанию</option>
-                        <option value="price:asc">Цена: по возрастанию</option>
-                        <option value="price:desc">Цена: по убыванию</option>
-                        <option value="title:asc">Название: А—Я</option>
-                        <option value="title:desc">Название: Я—А</option>
-                    </select>
-                </div>
+            <div>
+                <select
+                        name="sort"
+                        class="rounded-full border border-neutral-300 py-2.5 px-3.5 text-sm bg-white t-descr t-descr_xxs font-extralight"
+                >
+                    <option value="">Порядок: по умолчанию</option>
+                    <option value="price:asc">Цена: по возрастанию</option>
+                    <option value="price:desc">Цена: по убыванию</option>
+                    <option value="title:asc">Название: А—Я</option>
+                    <option value="title:desc">Название: Я—А</option>
+                </select>
             </div>
         </div>
 
-        <div class="catalog-layout">
+        <div class="grid gap-10 lg:grid-cols-[260px_minmax(0,1fr)] items-start">
             <aside>
-                <div class="catalog-sidebar-title t-name t-name_xs">Категории</div>
-                <div class="catalog-parts-list t-descr t-descr_xxs font-extralight">
+                <div class="text-base mb-4">Категории</div>
+                <div class="text-sm font-extralight">
                     <button
                             type="button"
-                            class="catalog-part catalog-part-active w-full text-left"
+                            class="w-full text-left cursor-pointer py-1.5 font-semibold"
                             data-category-filter="all"
                     >
                         Все
@@ -281,7 +282,7 @@
 
                     <button
                             type="button"
-                            class="catalog-part flex w-full items-center justify-between cursor-pointer"
+                            class="flex w-full items-center justify-between cursor-pointer py-1.5"
                             data-catalog-group="soft"
                             data-category-filter="soft"
                     >
@@ -303,22 +304,22 @@
                         </svg>
                     </button>
                     <div class="space-y-1 hidden" data-catalog-sub="soft">
-                        <div class="catalog-subpart">Кровати для взрослых</div>
+                        <div class="pl-3.5 text-xs">Кровати для взрослых</div>
                         <button
                                 type="button"
-                                class="catalog-subpart w-full text-left"
+                                class="w-full text-left pl-3.5 text-xs"
                                 data-subcategory-filter="soft-beds-kids"
                         >
                             Кровати для детей
                         </button>
-                        <div class="catalog-subpart">Диваны</div>
-                        <div class="catalog-subpart">Кресла</div>
-                        <div class="catalog-subpart">Стулья</div>
+                        <div class="pl-3.5 text-xs">Диваны</div>
+                        <div class="pl-3.5 text-xs">Кресла</div>
+                        <div class="pl-3.5 text-xs">Стулья</div>
                     </div>
 
                     <button
                             type="button"
-                            class="catalog-part mt-2 flex w-full items-center justify-between cursor-pointer"
+                            class="mt-2 flex w-full items-center justify-between cursor-pointer py-1.5"
                             data-catalog-group="case"
                             data-category-filter="case"
                     >
@@ -340,16 +341,16 @@
                         </svg>
                     </button>
                     <div class="space-y-1 hidden" data-catalog-sub="case">
-                        <div class="catalog-subpart">Комоды</div>
-                        <div class="catalog-subpart">Шкафы</div>
-                        <div class="catalog-subpart">Настенные полки</div>
-                        <div class="catalog-subpart">Тумбы</div>
-                        <div class="catalog-subpart">Компьютерные столы</div>
+                        <div class="pl-3.5 text-xs">Комоды</div>
+                        <div class="pl-3.5 text-xs">Шкафы</div>
+                        <div class="pl-3.5 text-xs">Настенные полки</div>
+                        <div class="pl-3.5 text-xs">Тумбы</div>
+                        <div class="pl-3.5 text-xs">Компьютерные столы</div>
                     </div>
 
                     <button
                             type="button"
-                            class="catalog-part mt-2 w-full text-left"
+                            class="mt-2 w-full text-left cursor-pointer py-1.5"
                             data-category-filter="kitchen"
                     >
                         Кухни
@@ -357,105 +358,109 @@
                 </div>
             </aside>
 
-            <div class="catalog-grid">
-                <article class="catalog-card" data-category="case">
+            <div class="grid gap-6 md:gap-6 lg:gap-6 catalog-grid md:grid-cols-4 sm:grid-cols-2">
+                <article class="catalog-card rounded-lg border border-neutral-200 p-4 md:p-4 text-center" data-category="case">
                     <div
-                            class="catalog-card-img"
+                            class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
                             style="background-image: url('https://static.tildacdn.com/stor3964-6534-4533-a564-333664666235/e05a1969ecf2a32f2b31dee5de6bcf82.png')"
                     >
                         <div class="absolute right-2.5 top-2.5 z-10">
-                            <div class="catalog-badge-new">NEW</div>
+                            <div class="inline-flex w-12 h-12 rounded-full bg-red-500 text-white text-xs font-normal items-center justify-center">
+                                NEW
+                            </div>
                         </div>
                     </div>
-                    <div class="catalog-card-title t-name t-name_xs">
+                    <div class="catalog-card-title text-sm font-semibold mb-1">
                         Комод AVE
                     </div>
-                    <div class="catalog-card-descr t-descr t-descr_xxs font-extralight">
+                    <div class="catalog-card-descr text-xs font-extralight mb-2.5">
                         Комоды и ящики на все случаи жизни
                     </div>
-                    <div class="catalog-card-price t-name t-name_xs">
+                    <div class="catalog-card-price text-sm font-semibold mb-3">
                         20 000
-                        <span class="catalog-card-old-price">22 000</span>
-                        <span class="t-descr t-descr_xxs font-extralight">р.</span>
+                        <span class="catalog-card-old-price text-xs line-through text-neutral-400 ml-1.5">22 000</span>
+                        <span class="text-xs font-extralight">р.</span>
                     </div>
-                    <div class="catalog-card-buttons">
-                        <a href="#" class="catalog-btn-main">Подробнее</a>
-                        <a href="#" class="catalog-btn-secondary">В корзину</a>
+                    <div class="catalog-card-buttons flex justify-center gap-1.5">
+                        <a href="#" class="catalog-btn-main inline-flex items-center justify-center w-36 h-11 rounded-md bg-black text-white text-xs">Подробнее</a>
+                        <a href="#" class="catalog-btn-secondary inline-flex items-center justify-center w-36 h-11 rounded-md border border-black text-black text-xs">В корзину</a>
                     </div>
                 </article>
 
                 <article
-                        class="catalog-card"
+                        class="catalog-card rounded-lg border border-neutral-200 p-4 md:p-4 text-center"
                         data-category="soft"
                         data-subcategory="soft-beds-kids"
                 >
                     <div
-                            class="catalog-card-img"
+                            class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
                             style="background-image: url('https://static.tildacdn.com/stor6261-3333-4134-b538-386438326235/aae35804cbee54d3bfbdf56da8cfbfe1.png')"
                     >
                         <div class="absolute right-2.5 top-2.5 z-10">
-                            <div class="catalog-badge-new">SALE</div>
+                            <div class="inline-flex w-12 h-12 rounded-full bg-red-500 text-white text-xs font-normal items-center justify-center">
+                                SALE
+                            </div>
                         </div>
                     </div>
-                    <div class="catalog-card-title t-name t-name_xs">
+                    <div class="catalog-card-title text-sm font-semibold mb-1">
                         Кровать AVE1
                     </div>
-                    <div class="catalog-card-descr t-descr t-descr_xxs font-extralight">
+                    <div class="catalog-card-descr text-xs font-extralight mb-2.5">
                         Раскладывающаяся детская кровать
                     </div>
-                    <div class="catalog-card-price t-name t-name_xs">
+                    <div class="catalog-card-price text-sm font-semibold mb-3">
                         30 000
-                        <span class="catalog-card-old-price">35 000</span>
-                        <span class="t-descr t-descr_xxs font-extralight">р.</span>
+                        <span class="catalog-card-old-price text-xs line-through text-neutral-400 ml-1.5">35 000</span>
+                        <span class="text-xs font-extralight">р.</span>
                     </div>
-                    <div class="catalog-card-buttons">
-                        <a href="#" class="catalog-btn-main">Подробнее</a>
-                        <a href="#" class="catalog-btn-secondary">В корзину</a>
+                    <div class="catalog-card-buttons flex justify-center gap-1.5">
+                        <a href="#" class="catalog-btn-main inline-flex items-center justify-center w-36 h-11 rounded-md bg-black text-white text-xs">Подробнее</a>
+                        <a href="#" class="catalog-btn-secondary inline-flex items-center justify-center w-36 h-11 rounded-md border border-black text-black text-xs">В корзину</a>
                     </div>
                 </article>
 
-                <article class="catalog-card" data-category="soft">
+                <article class="catalog-card rounded-lg border border-neutral-200 p-4 md:p-4 text-center" data-category="soft">
                     <div
-                            class="catalog-card-img"
+                            class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
                             style="background-image: url('https://static.tildacdn.com/stor3737-3230-4238-a664-663732366265/754ee1c5fbe6a3dd0e79032398da63da.png')"
                     ></div>
-                    <div class="catalog-card-title t-name t-name_xs">
+                    <div class="catalog-card-title text-sm font-semibold mb-1">
                         Стул AVE1
                     </div>
 
-                    <div class="catalog-card-descr t-descr t-descr_xxs font-extralight">
+                    <div class="catalog-card-descr text-xs font-extralight mb-2.5">
                         Мягкие и удобные стулья
                     </div>
-                    <div class="catalog-card-price t-name t-name_xs">
+                    <div class="catalog-card-price text-sm font-semibold mb-3">
                         16 000
-                        <span class="catalog-card-old-price">12 000</span>
-                        <span class="t-descr t-descr_xxs font-extralight">р.</span>
+                        <span class="catalog-card-old-price text-xs line-through text-neutral-400 ml-1.5">12 000</span>
+                        <span class="text-xs font-extralight">р.</span>
                     </div>
-                    <div class="catalog-card-buttons">
-                        <a href="#" class="catalog-btn-main">Подробнее</a>
-                        <a href="#" class="catalog-btn-secondary">В корзину</a>
+                    <div class="catalog-card-buttons flex justify-center gap-1.5">
+                        <a href="#" class="catalog-btn-main inline-flex items-center justify-center w-36 h-11 rounded-md bg-black text-white text-xs">Подробнее</a>
+                        <a href="#" class="catalog-btn-secondary inline-flex items-center justify-center w-36 h-11 rounded-md border border-black text-black text-xs">В корзину</a>
                     </div>
                 </article>
 
-                <article class="catalog-card" data-category="soft">
+                <article class="catalog-card rounded-lg border border-neutral-200 p-4 md:p-4 text-center" data-category="soft">
                     <div
-                            class="catalog-card-img"
+                            class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
                             style="background-image: url('https://static.tildacdn.com/stor6537-6162-4531-a565-333335333165/7efefe5c281be79fe70feadea52ec095.png')"
                     ></div>
-                    <div class="catalog-card-title t-name t-name_xs">
+                    <div class="catalog-card-title text-sm font-semibold mb-1">
                         Кресло AVE1
                     </div>
-                    <div class="catalog-card-descr t-descr t-descr_xxs font-extralight">
+                    <div class="catalog-card-descr text-xs font-extralight mb-2.5">
                         Мягкие и удобные кресла
                     </div>
-                    <div class="catalog-card-price t-name t-name_xs">
+                    <div class="catalog-card-price text-sm font-semibold mb-3">
                         12 000
-                        <span class="catalog-card-old-price">16 000</span>
-                        <span class="t-descr t-descr_xxs font-extralight">р.</span>
+                        <span class="catalog-card-old-price text-xs line-through text-neutral-400 ml-1.5">16 000</span>
+                        <span class="text-xs font-extralight">р.</span>
                     </div>
-                    <div class="catalog-card-buttons">
-                        <a href="#" class="catalog-btn-main">Подробнее</a>
-                        <a href="#" class="catalog-btn-secondary">В корзину</a>
+                    <div class="catalog-card-buttons flex justify-center gap-1.5">
+                        <a href="#" class="catalog-btn-main inline-flex items-center justify-center w-36 h-11 rounded-md bg-black text-white text-xs">Подробнее</a>
+                        <a href="#" class="catalog-btn-secondary inline-flex items-center justify-center w-36 h-11 rounded-md border border-black text-black text-xs">В корзину</a>
                     </div>
                 </article>
             </div>
@@ -749,11 +754,11 @@
                 <div class="contacts-col w-full flex items-center justify-start">
                     <div class="max-w-sm w-full px-6 md:px-10 mx-10 text-left">
                         <div class="text-3xl font-bold mb-11">Контакты:</div>
-                        <div class="t-descr text-2xl text-white font-extralight mb-8">
+                        <div class="text-2xl text-white font-extralight mb-8">
                             +7 927 997 888 4<br/>
                             hello@loftpineapple.com
                         </div>
-                        <div class="t-text t-text_sm text-base">
+                        <div class="text-base">
                             г. Чебоксары, ул. Пирогова, д.6<br/>
                             Россия
                         </div>
@@ -763,8 +768,7 @@
                                 <li class="t-sociallinks_item t-sociallinks_item_telegram">
                                     <a target="_blank" rel="nofollow" aria-label="telegram"
                                        class="inline-flex items-center justify-center w-8 h-8">
-                                        <svg
-                                                class="t-sociallinks__svg"
+                        <svg
                                                 role="presentation"
                                                 width="30px"
                                                 height="30px"
@@ -784,8 +788,7 @@
                                 <li class="t-sociallinks_item t-sociallinks_item_whatsapp">
                                     <a target="_blank" rel="nofollow" aria-label="whatsapp"
                                        class="inline-flex items-center justify-center w-8 h-8">
-                                        <svg
-                                                class="t-sociallinks__svg"
+                        <svg
                                                 role="presentation"
                                                 width="30px"
                                                 height="30px"
@@ -805,8 +808,7 @@
                                 <li class="t-sociallinks_item t-sociallinks_item_vkmessenger">
                                     <a target="_blank" rel="nofollow" aria-label="vkmessenger"
                                        class="inline-flex items-center justify-center w-8 h-8">
-                                        <svg
-                                                class="t-sociallinks__svg"
+                        <svg
                                                 role="presentation"
                                                 width="30px"
                                                 height="30px"

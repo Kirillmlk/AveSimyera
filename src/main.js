@@ -149,9 +149,9 @@ if (categoryFilterButtons.length && catalogCards.length) {
       const value = button.getAttribute('data-category-filter')
 
       categoryFilterButtons.forEach((btn) => {
-        btn.classList.remove('catalog-part-active')
+        btn.classList.remove('font-semibold')
       })
-      button.classList.add('catalog-part-active')
+      button.classList.add('font-semibold')
 
       catalogCards.forEach((card) => {
         const cardCategory = card.getAttribute('data-category')
