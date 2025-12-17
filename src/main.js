@@ -65,7 +65,7 @@ if (
     },
   ]
 
-  const heroFadeContainer = document.querySelector('.hero-fade')
+  const heroFadeContainer = document.querySelector('.main-hero-section')
 
   let heroIndex = 0
 
@@ -73,7 +73,7 @@ if (
     const slide = heroSlides[heroIndex]
 
     if (heroFadeContainer) {
-      heroFadeContainer.classList.add('hero-fade-hidden')
+      heroFadeContainer.classList.add('opacity-0')
       setTimeout(() => {
         heroSection.style.backgroundImage = slide.bg
         heroTitleMain.textContent = slide.titleMain
@@ -83,10 +83,11 @@ if (
         heroButton.setAttribute('href', slide.buttonHref)
         if (heroBullets.length) {
           heroBullets.forEach((bullet, index) => {
-            bullet.classList.toggle('hero-bullet-active', index === heroIndex)
+            bullet.classList.toggle('bg-white', index === heroIndex)
+            bullet.classList.toggle('bg-transparent', index !== heroIndex)
           })
         }
-        heroFadeContainer.classList.remove('hero-fade-hidden')
+        heroFadeContainer.classList.remove('opacity-0')
       }, 500)
     } else {
       heroSection.style.backgroundImage = slide.bg
@@ -97,7 +98,8 @@ if (
       heroButton.setAttribute('href', slide.buttonHref)
       if (heroBullets.length) {
         heroBullets.forEach((bullet, index) => {
-          bullet.classList.toggle('hero-bullet-active', index === heroIndex)
+          bullet.classList.toggle('bg-white', index === heroIndex)
+          bullet.classList.toggle('bg-transparent', index !== heroIndex)
         })
       }
     }

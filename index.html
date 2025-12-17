@@ -136,46 +136,42 @@
 </div>
 
 <section
-        class="main-hero-section hero-fade relative bg-cover bg-center bg-no-repeat"
+        class="main-hero-section hero-height relative bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
         style="background-image: url('https://static.tildacdn.pub/tild3965-6336-4532-a636-393563666237/Gemini_Generated_Ima.png')"
 >
     <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50"></div>
     <div class="relative flex h-full items-center justify-center px-5 text-center text-white">
         <button
                 type="button"
-                class="hero-arrow hero-arrow-prev absolute left-5 top-[60%] md:top-1/2 -translate-y-1/2 inline-flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-white cursor-pointer"
+                class="hero-arrow-prev absolute left-5 top-[60%] md:top-1/2 -translate-y-1/2 inline-flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-white cursor-pointer"
                 aria-label="Предыдущий слайд"
         >
-            <div class="hero-arrow-body">
-                <svg role="presentation" focusable="false" viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
-                    <polyline
-                            fill="none"
-                            stroke="#222222"
-                            stroke-linejoin="butt"
-                            stroke-linecap="butt"
-                            stroke-width="1"
-                            points="6.8,0.5 0.8,6.5 6.8,12.5"
-                    ></polyline>
-                </svg>
-            </div>
+            <svg role="presentation" focusable="false" viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
+                <polyline
+                        fill="none"
+                        stroke="#222222"
+                        stroke-linejoin="butt"
+                        stroke-linecap="butt"
+                        stroke-width="1"
+                        points="6.8,0.5 0.8,6.5 6.8,12.5"
+                ></polyline>
+            </svg>
         </button>
         <button
                 type="button"
-                class="hero-arrow hero-arrow-next absolute right-5 top-[60%] md:top-1/2 -translate-y-1/2 inline-flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-white cursor-pointer"
+                class="hero-arrow-next absolute right-5 top-[60%] md:top-1/2 -translate-y-1/2 inline-flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-white cursor-pointer"
                 aria-label="Следующий слайд"
         >
-            <div class="hero-arrow-body">
-                <svg role="presentation" focusable="false" viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
-                    <polyline
-                            fill="none"
-                            stroke="#222222"
-                            stroke-linejoin="butt"
-                            stroke-linecap="butt"
-                            stroke-width="1"
-                            points="0.5,0.5 6.5,6.5 0.5,12.5"
-                    ></polyline>
-                </svg>
-            </div>
+            <svg role="presentation" focusable="false" viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
+                <polyline
+                        fill="none"
+                        stroke="#222222"
+                        stroke-linejoin="butt"
+                        stroke-linecap="butt"
+                        stroke-width="1"
+                        points="0.5,0.5 6.5,6.5 0.5,12.5"
+                ></polyline>
+            </svg>
         </button>
         <div>
             <div id="hero-title-main" class="text-5xl font-bold text-white">AveSimyera</div>
@@ -185,17 +181,17 @@
             <a
                     id="hero-button"
                     href="#catalog"
-                    class="mt-7 inline-flex items-center justify-center rounded-md px-8 py-3 text-base hero-btn"
+                    class="mt-7 inline-flex items-center justify-center rounded-md px-8 py-3 text-base bg-neutral-200 text-neutral-800 hover:bg-pink-500 hover:text-white transition-colors duration-200"
             >
                 За покупками
             </a>
         </div>
     </div>
-    <ul class="hero-bullets">
+    <ul class="absolute left-1/2 bottom-6 -translate-x-1/2 flex gap-2.5">
         <li>
             <button
                     type="button"
-                    class="hero-bullet hero-bullet-active"
+                    class="hero-bullet w-2.5 h-2.5 rounded-full border-2 border-white bg-white"
                     data-hero-slide="0"
                     aria-label="Перейти к слайду 1"
             ></button>
@@ -203,7 +199,7 @@
         <li>
             <button
                     type="button"
-                    class="hero-bullet"
+                    class="hero-bullet w-2.5 h-2.5 rounded-full border-2 border-white bg-transparent"
                     data-hero-slide="1"
                     aria-label="Перейти к слайду 2"
             ></button>
@@ -211,7 +207,7 @@
         <li>
             <button
                     type="button"
-                    class="hero-bullet"
+                    class="hero-bullet w-2.5 h-2.5 rounded-full border-2 border-white bg-transparent"
                     data-hero-slide="2"
                     aria-label="Перейти к слайду 3"
             ></button>
@@ -219,9 +215,9 @@
     </ul>
 </section>
 
-<section class="main-promo">
+<section class="pt-24 pb-16 md:pt-24 md:pb-24">
     <div class="mx-auto max-w-3xl px-5 text-center">
-        <div class="main-promo__text t-descr t-descr_xxxl font-extralight">
+        <div class="text-2xl md:text-3xl leading-relaxed font-extralight">
             Мебель для дома и офиса, которая <br/>приносит радость
         </div>
     </div>
@@ -762,10 +758,10 @@
                             г. Чебоксары, ул. Пирогова, д.6<br/>
                             Россия
                         </div>
-                        <div class="t-sociallinks">
-                            <ul role="list" class="t-sociallinks_wrapper mt-6 flex gap-3 list-none p-0"
+                        <div>
+                            <ul role="list" class="mt-6 flex gap-3 list-none p-0"
                                 aria-label="Соц. сети">
-                                <li class="t-sociallinks_item t-sociallinks_item_telegram">
+                                <li>
                                     <a target="_blank" rel="nofollow" aria-label="telegram"
                                        class="inline-flex items-center justify-center w-8 h-8">
                         <svg
@@ -785,7 +781,7 @@
                                         </svg>
                                     </a>
                                 </li>
-                                <li class="t-sociallinks_item t-sociallinks_item_whatsapp">
+                                <li>
                                     <a target="_blank" rel="nofollow" aria-label="whatsapp"
                                        class="inline-flex items-center justify-center w-8 h-8">
                         <svg
@@ -805,7 +801,7 @@
                                         </svg>
                                     </a>
                                 </li>
-                                <li class="t-sociallinks_item t-sociallinks_item_vkmessenger">
+                                <li>
                                     <a target="_blank" rel="nofollow" aria-label="vkmessenger"
                                        class="inline-flex items-center justify-center w-8 h-8">
                         <svg
