@@ -177,10 +177,10 @@ if (subcategoryFilterButtons.length && catalogCards.length) {
   })
 }
 
-const galleryMainImg = document.querySelector('.gallery__main img')
-const galleryThumbImages = document.querySelectorAll('.gallery__thumb-item img')
-const galleryPrev = document.querySelector('.gallery__arrow_prev')
-const galleryNext = document.querySelector('.gallery__arrow_next')
+const galleryMainImg = document.querySelector('.gallery_main img')
+const galleryThumbImages = document.querySelectorAll('.gallery_thumb-item img')
+const galleryPrev = document.querySelector('.gallery_arrow_prev')
+const galleryNext = document.querySelector('.gallery_arrow_next')
 
 if (galleryMainImg && galleryThumbImages.length) {
   let currentIndex = 0
@@ -193,9 +193,9 @@ if (galleryMainImg && galleryThumbImages.length) {
     galleryMainImg.src = fullSrc
 
     galleryThumbImages.forEach((img) => {
-      img.parentElement?.classList.remove('gallery__thumb-item_active')
+      img.parentElement?.classList.remove('outline', 'outline-2', 'outline-black')
     })
-    thumb.parentElement?.classList.add('gallery__thumb-item_active')
+    thumb.parentElement?.classList.add('outline', 'outline-2', 'outline-black')
 
     currentIndex = clampedIndex
   }

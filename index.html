@@ -474,22 +474,22 @@
         </div>
     </div>
 
-    <div class="gallery">
-        <div class="gallery__container">
-            <div class="gallery__wrapper">
-                <div class="gallery__main">
+    <div class="py-8 md:pt-8 md:pb-32 bg-white">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="w-full">
+                <div class="max-w-full rounded-2xl overflow-hidden mb-6">
                     <img
                             src="https://static.tildacdn.pub/tild3665-3565-4530-a661-316461613532/generated.jpg"
                             alt="Пример работы крупным планом"
                     />
                 </div>
-                <div class="gallery__thumbs-wrapper">
+                <div class="flex h-32 gap-4 justify-center items-center">
                     <button
                             type="button"
-                            class="gallery__arrow gallery__arrow_prev"
+                            class="gallery_arrow gallery_arrow_prev inline-flex w-8 h-8 rounded-full border-none bg-white/90 items-center justify-center cursor-pointer shadow-md"
                             aria-label="Предыдущее изображение"
                     >
-                        <svg viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
                             <polyline
                                     fill="none"
                                     stroke="#000000"
@@ -501,51 +501,57 @@
                         </svg>
                     </button>
 
-                    <div class="gallery__thumbs">
-                        <div class="gallery__thumb-item gallery__thumb-item_active">
+                    <div class="flex gap-4 flex-nowrap overflow-x-auto">
+                        <div class="gallery_thumb-item group w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer outline outline-2 outline-black">
                             <img
                                     src="https://static.tildacdn.pub/tild3633-3133-4263-b335-653461396639/generated.jpg"
                                     alt="Пример работы 1"
+                                    class="block w-full h-20 object-cover transition-transform duration-200 group-hover:scale-105"
                             />
                         </div>
-                        <div class="gallery__thumb-item">
+                        <div class="gallery_thumb-item group w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer">
                             <img
                                     src="https://static.tildacdn.pub/tild3665-3565-4530-a661-316461613532/generated.jpg"
                                     alt="Пример работы 2"
+                                    class="block w-full h-20 object-cover transition-transform duration-200 group-hover:scale-105"
                             />
                         </div>
-                        <div class="gallery__thumb-item">
+                        <div class="gallery_thumb-item group w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer">
                             <img
                                     src="https://static.tildacdn.pub/tild6638-3963-4463-a235-343164633335/generated.jpg"
                                     alt="Пример работы 3"
+                                    class="block w-full h-20 object-cover transition-transform duration-200 group-hover:scale-105"
                             />
                         </div>
-                        <div class="gallery__thumb-item">
+                        <div class="gallery_thumb-item group w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer">
                             <img
                                     src="https://static.tildacdn.pub/tild3833-3438-4032-a661-363337613562/generated.jpg"
                                     alt="Пример работы 4"
+                                    class="block w-full h-20 object-cover transition-transform duration-200 group-hover:scale-105"
                             />
                         </div>
-                        <div class="gallery__thumb-item">
+                        <div class="gallery_thumb-item group w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer">
                             <img
                                     src="https://static.tildacdn.pub/tild3566-3464-4266-a133-653664333131/generated.jpg"
                                     alt="Пример работы 5"
+                                    class="block w-full h-20 object-cover transition-transform duration-200 group-hover:scale-105"
                             />
                         </div>
-                        <div class="gallery__thumb-item">
+                        <div class="gallery_thumb-item group w-28 shrink-0 rounded-xl overflow-hidden cursor-pointer">
                             <img
                                     src="https://static.tildacdn.pub/tild3531-6466-4066-b830-306261333262/generated.jpg"
                                     alt="Пример работы 6"
+                                    class="block w-full h-20 object-cover transition-transform duration-200 group-hover:scale-105"
                             />
                         </div>
                     </div>
 
                     <button
                             type="button"
-                            class="gallery__arrow gallery__arrow_next"
+                            class="gallery_arrow gallery_arrow_next inline-flex w-8 h-8 rounded-full border-none bg-white/90 items-center justify-center cursor-pointer shadow-md"
                             aria-label="Следующее изображение"
                     >
-                        <svg viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 7.3 13" xmlns="http://www.w3.org/2000/svg">
                             <polyline
                                     fill="none"
                                     stroke="#000000"
@@ -752,7 +758,8 @@
                             Россия
                         </div>
                         <div class="t-sociallinks">
-                            <ul role="list" class="t-sociallinks_wrapper mt-6 flex gap-3 list-none p-0" aria-label="Соц. сети">
+                            <ul role="list" class="t-sociallinks_wrapper mt-6 flex gap-3 list-none p-0"
+                                aria-label="Соц. сети">
                                 <li class="t-sociallinks_item t-sociallinks_item_telegram">
                                     <a target="_blank" rel="nofollow" aria-label="telegram"
                                        class="inline-flex items-center justify-center w-8 h-8">
