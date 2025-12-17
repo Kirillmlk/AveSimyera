@@ -239,6 +239,35 @@ if (videoPlayButton && videoContainer && videoIframe) {
   })
 }
 
+// Product page gallery (product.html)
+const productMainImg = document.querySelector('.product-gallery-main img')
+const productThumbs = document.querySelectorAll('.product-gallery-thumb img')
+
+if (productMainImg && productThumbs.length) {
+  // preload all big images once so переключение было моментальным
+  productThumbs.forEach((thumb) => {
+    const src = thumb.getAttribute('data-full') || thumb.src
+    const img = new Image()
+    img.src = src
+  })
+
+  const setProductImage = (thumbImg) => {
+    const newSrc = thumbImg.getAttribute('data-full') || thumbImg.src
+    productMainImg.src = newSrc
+
+    productThumbs.forEach((img) => {
+      img.parentElement?.classList.remove('product-gallery-thumb--active')
+    })
+    thumbImg.parentElement?.classList.add('product-gallery-thumb--active')
+  }
+
+  productThumbs.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      setProductImage(thumb)
+    })
+  })
+}
+
 // Smooth scroll for anchor links with custom duration
 const anchorLinks = document.querySelectorAll('a[href^="#"]')
 
