@@ -1,27 +1,3 @@
-/* Контактный блок с картой */
-
-#rec1665773481 {
-  background-color: #292929;
-  color: #ffffff;
-}
-
-/* Основная обертка блока */
-.contacts-wrapper {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-}
-
-.contacts-layout {
-  display: flex;
-  flex-direction: column;
-}
-
-.contacts-col {
-  width: 100%;
-}
-
-/* Колонки: карта + текст */
 @media (min-width: 900px) {
   .contacts-layout {
     flex-direction: row;
@@ -32,57 +8,14 @@
   }
 }
 
-/* Карта */
+/* Фон секции контактов */
+.contacts-bg {
+  background-color: #292929;
+}
+
+/* Высота колонки с картой */
 .contacts-map-col {
   min-height: 640px;
 }
 
-.contacts-map {
-  height: 100%;
-}
-
-.contacts-map-col iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* Правая колонка с текстом и контактами */
-.contacts-info-col {
-  display: flex;
-  align-items: center; /* по вертикали по центру */
-  justify-content: flex-start; /* блок смещен к левой стороне своей колонки */
-}
-
-.contacts-info {
-  max-width: 380px;
-  width: 100%;
-  padding: 40px 24px;
-  margin-left: 40px;
-  margin-right: 40px;
-  box-sizing: border-box;
-  color: #ffffff;
-  text-align: left;
-}
-
-@media (min-width: 768px) {
-  .contacts-info {
-    padding: 60px 40px;
-  }
-}
-
-/* Соц. сети в контактах */
-.t-sociallinks_wrapper {
-  margin-top: 24px;
-  display: flex;
-  gap: 12px;
-  list-style: none;
-  padding: 0;
-}
-
-.t-sociallinks_item a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
 
