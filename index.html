@@ -562,18 +562,18 @@
     </div>
 </section>
 
-<section class="video-block">
-    <div class="video-container">
-        <div class="video-wrapper">
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="relative video-height rounded-2xl overflow-hidden">
             <div
-                    class="video-bg"
+                    class="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style="background-image: url('https://static.tildacdn.pub/tild6538-3538-4962-b461-653365373564/__.png')"
             ></div>
-            <div class="video-overlay"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent z-[1]"></div>
 
-            <div class="video-play">
+            <div class="absolute inset-0 flex items-center justify-center z-[2] cursor-pointer">
                 <button
-                        class="video-play-btn"
+                        class="video-play-btn w-12 h-12 flex items-center justify-center"
                         type="button"
                         aria-label="Воспроизвести видео"
                         data-video-id="ESsI4r55MV0"
@@ -588,18 +588,23 @@
                 </button>
             </div>
 
-            <div class="video-content">
-                <div class="video-title">Посмотрите видео на нашем канале чтобы узнать о нас больше</div>
-                <div class="video-descr">Как собрать нашу кровать</div>
+            <div class="absolute inset-x-0 bottom-0 p-6 md:p-10 z-[2] text-white">
+                <div class="text-2xl md:text-[28px] font-semibold mb-3">
+                    Посмотрите видео на нашем канале чтобы узнать о нас больше
+                </div>
+                <div class="text-sm md:text-base text-white/90">
+                    Как собрать нашу кровать
+                </div>
             </div>
 
-            <div class="video-frame" id="video-container">
+            <div class="video-frame absolute inset-0 z-[3] hidden" id="video-container">
                 <iframe
                         id="video-iframe"
                         src=""
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen
+                        class="w-full h-full border-0"
                 ></iframe>
             </div>
         </div>
