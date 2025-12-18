@@ -606,4 +606,24 @@ if (productTabsButton && productTabsSection) {
   })
 }
 
+const allCatalogCards = document.querySelectorAll('.catalog-card')
+
+allCatalogCards.forEach((card) => {
+  const imgElement = card.querySelector('.catalog-card-img')
+  if (!imgElement) return
+
+  const originalImage = imgElement.style.backgroundImage
+  const hoverImage = imgElement.getAttribute('data-hover-image')
+
+  if (hoverImage) {
+    card.addEventListener('mouseenter', () => {
+      imgElement.style.backgroundImage = hoverImage
+    })
+
+    card.addEventListener('mouseleave', () => {
+      imgElement.style.backgroundImage = originalImage
+    })
+  }
+})
+
 renderCartItems()
