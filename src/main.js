@@ -606,21 +606,18 @@ if (productTabsButton && productTabsSection) {
   })
 }
 
-const allCatalogCards = document.querySelectorAll('.catalog-card')
+const catalogCardImgs = document.querySelectorAll('.catalog-card-img[data-hover-image]')
 
-allCatalogCards.forEach((card) => {
-  const imgElement = card.querySelector('.catalog-card-img')
-  if (!imgElement) return
-
+catalogCardImgs.forEach((imgElement) => {
   const originalImage = imgElement.style.backgroundImage
   const hoverImage = imgElement.getAttribute('data-hover-image')
 
   if (hoverImage) {
-    card.addEventListener('mouseenter', () => {
+    imgElement.addEventListener('mouseenter', () => {
       imgElement.style.backgroundImage = hoverImage
     })
 
-    card.addEventListener('mouseleave', () => {
+    imgElement.addEventListener('mouseleave', () => {
       imgElement.style.backgroundImage = originalImage
     })
   }
