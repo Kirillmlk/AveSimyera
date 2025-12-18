@@ -67,7 +67,7 @@
         <button
                 id="mobile-menu-toggle"
                 type="button"
-                class="relative w-[30px] h-6 inline-flex flex-col justify-between md:hidden focus:outline-none"
+                class="relative menu-toggle-width h-6 inline-flex flex-col justify-between md:hidden focus:outline-none"
                 aria-label="Навигационное меню"
                 aria-expanded="false"
         >
@@ -136,7 +136,7 @@
 </div>
 
 <section
-        class="main-hero-section h-[700px] relative bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+        class="main-hero-section hero-height relative bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
         style="background-image: url('https://static.tildacdn.pub/tild3965-6336-4532-a636-393563666237/Gemini_Generated_Ima.png')"
 >
     <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50"></div>
@@ -575,7 +575,7 @@
 
 <section id="onas" class="py-16 md:py-20 bg-white">
     <div class="max-w-6xl mx-auto px-5">
-        <div class="relative h-[540px] md:h-[540px] sm:h-[400px] rounded-2xl overflow-hidden">
+        <div class="relative video-height rounded-2xl overflow-hidden">
             <div
                     class="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style="background-image: url('https://static.tildacdn.pub/tild6538-3538-4962-b461-653365373564/__.png')"
@@ -600,7 +600,7 @@
             </div>
 
             <div class="absolute inset-x-0 bottom-0 p-6 md:p-10 z-[2] text-white">
-                <div class="text-2xl md:text-[28px] font-semibold mb-3">
+                <div class="text-2xl md:text-size-28 font-semibold mb-3">
                     Посмотрите видео на нашем канале чтобы узнать о нас больше
                 </div>
                 <div class="text-sm md:text-base text-white/90">
@@ -740,7 +740,7 @@
     <div class="bg-[#292929] text-white">
         <div class="contacts-wrapper">
             <div class="flex flex-col lg:flex-row">
-                <div class="t-map-lazyload min-h-[640px] w-full lg:w-1/2">
+                <div class="t-map-lazyload map-height w-full lg:w-1/2">
                     <div class="h-full">
                         <iframe
                                 src="https://yandex.ru/map-widget/v1/?ll=47.221662%2C56.141524&z=14&l=map"
@@ -840,7 +840,7 @@
 
 <div class="cart-overlay fixed top-0 left-0 w-full h-full bg-black/50 z-[999] hidden opacity-0 transition-opacity duration-300 ease-in-out" id="cart-overlay"></div>
 <div class="cart-sidebar fixed top-0 right-0 h-screen z-[1000] hidden" id="cart-sidebar">
-    <div class="cart-sidebar-content bg-white shadow-lg box-border h-full m-0 max-h-full w-[560px] min-h-screen overflow-x-hidden overflow-y-auto p-10 fixed right-0 top-0 transform translate-x-full transition-all duration-300 ease-in-out flex flex-col">
+    <div class="cart-sidebar-content bg-white shadow-lg box-border h-full m-0 max-h-full cart-sidebar-width min-h-screen overflow-x-hidden overflow-y-auto p-10 fixed right-0 top-0 transform translate-x-full transition-all duration-300 ease-in-out flex flex-col">
         <div class="flex justify-between items-center pb-5 mb-5 border-b border-gray-200">
             <div class="text-2xl font-semibold text-black">Ваш заказ</div>
             <div class="relative">
@@ -919,14 +919,14 @@
     </div>
 </div>
 
-<div id="cart-icon-wrapper" class="relative cursor-pointer inline-flex items-center justify-center transition-opacity duration-200 ease-in-out hover:opacity-70 fixed top-[50px] right-[50px] z-[999] bg-white rounded-full w-[72px] h-[72px] shadow-md flex items-center justify-center hidden" style="display: none;">
+<div id="cart-icon-wrapper" class="relative cursor-pointer inline-flex items-center justify-center transition-opacity duration-200 ease-in-out hover:opacity-70 fixed cart-icon-position z-[999] bg-white rounded-full cart-icon-size shadow-md flex items-center justify-center hidden" style="display: none;">
     <div class="inline-flex items-center justify-center">
         <svg role="img" class="stroke-black w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
             <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M44 18h10v45H10V18h10z"></path>
             <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M22 24V11c0-5.523 4.477-10 10-10s10 4.477 10 10v13"></path>
         </svg>
     </div>
-    <div id="cart-counter" class="absolute -top-1.5 -right-1.5 min-w-6 h-6 flex items-center justify-center bg-red-500 text-white text-xs font-semibold rounded-[10px] px-1.5 box-border js-carticon-counter">0</div>
+    <div id="cart-counter" class="absolute -top-1.5 -right-1.5 min-w-6 h-6 flex items-center justify-center bg-red-500 text-white text-xs font-semibold rounded-10 px-1.5 box-border js-carticon-counter">0</div>
 </div>
 
 <div class="cart-checkout-page fixed top-0 left-0 w-full h-screen bg-white z-[1001] hidden opacity-0 transition-opacity duration-300 ease-in-out overflow-y-auto" id="cart-checkout-page">
@@ -974,11 +974,11 @@
                     <div class="text-sm font-light text-black">Доставка</div>
                     <div class="form-radio-group flex flex-col gap-3 transition-colors duration-200">
                         <label class="form-radio flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="delivery" value="pickup" class="w-[18px] h-[18px] cursor-pointer" checked required>
+                            <input type="radio" name="delivery" value="pickup" class="radio-size cursor-pointer" checked required>
                             <span class="text-xs font-light text-black cursor-pointer">Самовывоз бесплатно</span>
                         </label>
                         <label class="form-radio flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="delivery" value="courier" class="w-[18px] h-[18px] cursor-pointer" required>
+                            <input type="radio" name="delivery" value="courier" class="radio-size cursor-pointer" required>
                             <span class="text-xs font-light text-black cursor-pointer">Доставка курьером 250 руб.</span>
                         </label>
                     </div>
@@ -987,11 +987,11 @@
                     <div class="text-sm font-light text-black">Варианты оплаты</div>
                     <div class="form-radio-group flex flex-col gap-3 transition-colors duration-200">
                         <label class="form-radio flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="payment" value="card" class="w-[18px] h-[18px] cursor-pointer" required>
+                            <input type="radio" name="payment" value="card" class="radio-size cursor-pointer" required>
                             <span class="text-xs font-light text-black cursor-pointer">Картой</span>
                         </label>
                         <label class="form-radio flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="payment" value="cash" class="w-[18px] h-[18px] cursor-pointer" required>
+                            <input type="radio" name="payment" value="cash" class="radio-size cursor-pointer" required>
                             <span class="text-xs font-light text-black cursor-pointer">Наличными</span>
                         </label>
                     </div>
@@ -1002,7 +1002,7 @@
             </form>
         </div>
         <div class="cart-checkout-info flex flex-col gap-5">
-            <div class="cart-checkout-info-wrapper sticky top-[100px] lg:static">
+            <div class="cart-checkout-info-wrapper sticky-top-offset lg:static">
                 <div class="flex flex-col gap-0 mb-5" id="checkout-products">
                 </div>
                 
