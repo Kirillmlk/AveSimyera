@@ -288,6 +288,36 @@
   opacity: 0.5;
 }
 
+.form-promocode-wrapper {
+  display: flex;
+  gap: 0;
+  width: 100%;
+}
+
+.form-promocode-input {
+  flex: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-promocode-btn {
+  padding: 12px 20px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.form-promocode-btn:hover {
+  background-color: #1f2937;
+}
+
 .form-checkbox-group {
   display: flex;
   align-items: center;
