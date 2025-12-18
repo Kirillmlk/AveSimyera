@@ -309,13 +309,9 @@ anchorLinks.forEach((link) => {
   })
 })
 
-const cartIcon = document.getElementById('cart-icon')
-const cartIconMobile = document.getElementById('cart-icon-mobile')
+const cartIconWrapper = document.getElementById('cart-icon-wrapper')
 const cartSidebar = document.getElementById('cart-sidebar')
 const cartClose = document.getElementById('cart-close')
-const cartCounter = document.getElementById('cart-counter')
-const cartCounterMobile = document.getElementById('cart-counter-mobile')
-
 const cartOverlay = document.getElementById('cart-overlay')
 
 const openCart = () => {
@@ -342,19 +338,8 @@ const closeCart = () => {
   }
 }
 
-if (cartIcon && cartSidebar) {
-  cartIcon.addEventListener('click', openCart)
-}
-
-if (cartIconMobile && cartSidebar) {
-  cartIconMobile.addEventListener('click', () => {
-    openCart()
-    if (menu && toggle && !menu.classList.contains('hidden')) {
-      toggle.classList.remove('t-menuburger_opened')
-      menu.classList.add('hidden')
-      toggle.setAttribute('aria-expanded', 'false')
-    }
-  })
+if (cartIconWrapper && cartSidebar) {
+  cartIconWrapper.addEventListener('click', openCart)
 }
 
 if (cartClose) {
@@ -530,23 +515,18 @@ const attachCartItemHandlers = () => {
 const updateCartCounter = () => {
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0)
   const counter = document.getElementById('cart-counter')
-  const counterMobile = document.getElementById('cart-counter-mobile')
+  const cartIconWrapper = document.getElementById('cart-icon-wrapper')
   
-  if (counter) {
-    if (totalQuantity > 0) {
+  if (totalQuantity > 0) {
+    if (counter) {
       counter.textContent = totalQuantity
-      counter.style.display = 'flex'
-    } else {
-      counter.style.display = 'none'
     }
-  }
-  
-  if (counterMobile) {
-    if (totalQuantity > 0) {
-      counterMobile.textContent = totalQuantity
-      counterMobile.style.display = 'flex'
-    } else {
-      counterMobile.style.display = 'none'
+    if (cartIconWrapper) {
+      cartIconWrapper.style.display = 'flex'
+    }
+  } else {
+    if (cartIconWrapper) {
+      cartIconWrapper.style.display = 'none'
     }
   }
 }

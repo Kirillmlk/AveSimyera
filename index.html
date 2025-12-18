@@ -27,18 +27,6 @@
 
         <div class="hidden items-center gap-4 md:flex">
             <a class="whitespace-nowrap text-lg text-white md:text-black no-underline pr-8" href="tel:+79279978884">+7 927 997 888 4</a>
-            <button
-                    id="cart-icon"
-                    type="button"
-                    class="relative inline-flex h-10 w-10 items-center justify-center text-white md:text-black focus:outline-none"
-                    aria-label="Открыть корзину"
-            >
-                <svg role="img" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-                    <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M44 18h10v45H10V18h10z"></path>
-                    <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M22 24V11c0-5.523 4.477-10 10-10s10 4.477 10 10v13"></path>
-                </svg>
-                <span id="cart-counter" class="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-semibold text-white" style="display: none;">0</span>
-            </button>
             <div class="flex items-center gap-2 text-slate-600">
                 <button class="inline-flex h-10 w-10 items-center justify-center text-slate-700 focus:outline-none"
                         aria-label="Telegram">
@@ -109,20 +97,6 @@
         </nav>
         <div class="space-y-3 pt-4">
             <a class="block text-center text-white text-lg no-underline" href="tel:+79279978884">+7 927 997 888 4</a>
-            <div class="flex items-center justify-center gap-4 mb-4">
-                <button
-                        id="cart-icon-mobile"
-                        type="button"
-                        class="relative inline-flex h-10 w-10 items-center justify-center text-white focus:outline-none"
-                        aria-label="Открыть корзину"
-                >
-                    <svg role="img" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-                        <path fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" d="M44 18h10v45H10V18h10z"></path>
-                        <path fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" d="M22 24V11c0-5.523 4.477-10 10-10s10 4.477 10 10v13"></path>
-                    </svg>
-                    <span id="cart-counter-mobile" class="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-semibold text-white" style="display: none;">0</span>
-                </button>
-            </div>
             <div class="flex items-center justify-center gap-4">
                 <button class="inline-flex h-10 w-10 items-center justify-center focus:outline-none"
                         aria-label="Telegram">
@@ -900,6 +874,16 @@
             <button class="t706__sidebar-continue" type="button">Оформить</button>
         </div>
     </div>
+</div>
+
+<div id="cart-icon-wrapper" class="t706__carticon-wrapper t706__carticon-fixed" style="display: none;">
+    <div class="t706__carticon-imgwrap">
+        <svg role="img" class="t706__carticon-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+            <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M44 18h10v45H10V18h10z"></path>
+            <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M22 24V11c0-5.523 4.477-10 10-10s10 4.477 10 10v13"></path>
+        </svg>
+    </div>
+    <div id="cart-counter" class="t706__carticon-counter js-carticon-counter">0</div>
 </div>
 
 <script type="module" src="/src/main.js"></script>
