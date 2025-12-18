@@ -68,19 +68,19 @@
         <button
                 id="mobile-menu-toggle"
                 type="button"
-                class="t-menuburger md:hidden focus:outline-none"
+                class="relative w-[30px] h-6 inline-flex flex-col justify-between md:hidden focus:outline-none"
                 aria-label="Навигационное меню"
                 aria-expanded="false"
         >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span class="absolute block w-full h-0.5 bg-white rounded-full left-0 transition-all duration-200 ease-in-out top-0"></span>
+            <span class="absolute block w-full h-0.5 bg-white rounded-full left-0 transition-all duration-200 ease-in-out top-1/2 -translate-y-1/2"></span>
+            <span class="absolute block w-full h-0.5 bg-white rounded-full left-0 transition-all duration-200 ease-in-out top-1/2 -translate-y-1/2"></span>
+            <span class="absolute block w-full h-0.5 bg-white rounded-full left-0 transition-all duration-200 ease-in-out bottom-0"></span>
         </button>
     </div>
 </header>
 
-<main class="product-page py-10 md:py-16">
+<main class="min-h-screen py-10 md:py-16">
     <div class="max-w-6xl mx-auto px-5 md:px-8">
         <a href="/index.html#catalog" class="inline-flex items-center text-sm text-slate-500 hover:text-black mb-6">
             <svg
@@ -97,47 +97,47 @@
             <span>Назад в каталог</span>
         </a>
 
-        <div class="product-page-main gap-8">
-            <!-- Left: gallery -->
+        <div class="grid grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-12 items-start lg:block lg:gap-8">
             <section aria-label="Фотогалерея товара">
-                <div class="product-gallery-main">
+                <div class="relative pb-[100%] rounded-xl overflow-hidden bg-[#ebebeb]">
                     <img
+                            class="absolute inset-0 w-full h-full object-cover"
                             src="https://static.tildacdn.com/stor3964-6534-4533-a564-333664666235/e05a1969ecf2a32f2b31dee5de6bcf82.png"
                             alt="Комод AVE — общий вид"
                     />
                 </div>
-                <div class="product-gallery-thumbs mt-3">
-                    <button type="button" class="product-gallery-thumb product-gallery-thumb--active">
+                <div class="flex gap-3 mt-3 overflow-x-auto pb-1">
+                    <button type="button" class="flex-none w-[72px] h-[72px] rounded-xl overflow-hidden cursor-pointer border-2 border-black">
                         <img
                                 src="https://static.tildacdn.com/stor3964-6534-4533-a564-333664666235/e05a1969ecf2a32f2b31dee5de6bcf82.png"
                                 alt="Комод AVE — общий вид"
                         />
                     </button>
-                    <button type="button" class="product-gallery-thumb">
+                    <button type="button" class="flex-none w-[72px] h-[72px] rounded-xl overflow-hidden cursor-pointer border-2 border-transparent">
                         <img
                                 src="https://static.tildacdn.com/stor3065-3932-4332-a265-646166353862/41b393a30e1c3a24eec7ef1d8b56afc2.png"
                                 alt="Комод AVE — вариант в дубе сонома"
                         />
                     </button>
-                    <button type="button" class="product-gallery-thumb">
+                    <button type="button" class="flex-none w-[72px] h-[72px] rounded-xl overflow-hidden cursor-pointer border-2 border-transparent">
                         <img
                                 src="https://static.tildacdn.com/stor3963-6337-4563-b930-353938346666/b422df7e698710cb42cbde94450ecd89.png"
                                 alt="Комод AVE — вариант в белом цвете"
                         />
                     </button>
-                    <button type="button" class="product-gallery-thumb">
+                    <button type="button" class="flex-none w-[72px] h-[72px] rounded-xl overflow-hidden cursor-pointer border-2 border-transparent">
                         <img
                                 src="https://static.tildacdn.com/stor3737-3534-4539-a234-343761393363/69be76b733facfa0f5c1ab158148f95b.png"
                                 alt="Комод AVE — вид сбоку"
                         />
                     </button>
-                    <button type="button" class="product-gallery-thumb">
+                    <button type="button" class="flex-none w-[72px] h-[72px] rounded-xl overflow-hidden cursor-pointer border-2 border-transparent">
                         <img
                                 src="https://static.tildacdn.com/stor3137-3463-4461-a561-643032653737/194ad137fb1765861acb9c75e22e5009.png"
                                 alt="Комод AVE — вариант цвета фасадов"
                         />
                     </button>
-                    <button type="button" class="product-gallery-thumb">
+                    <button type="button" class="flex-none w-[72px] h-[72px] rounded-xl overflow-hidden cursor-pointer border-2 border-transparent">
                         <img
                                 src="https://static.tildacdn.com/stor3038-3632-4736-a564-393662373663/329f03243890d15ca2061f879c7ccb10.png"
                                 alt="Комод AVE — вариант в тёмно‑зеленом цвете"
@@ -146,7 +146,6 @@
                 </div>
             </section>
 
-            <!-- Right: info -->
             <section aria-labelledby="product-title" class="mt-8 lg:mt-0">
                 <h1 id="product-title" class="text-2xl md:text-3xl font-semibold mb-2">Комод AVE</h1>
                 <div class="text-sm text-slate-500 mb-4">AveSimeyre • Корпусная мебель</div>
@@ -164,7 +163,7 @@
                     <div class="flex flex-col gap-2">
                         <button
                                 type="button"
-                                class="product-color-option inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
+                                class="w-[140px] inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
                         >
                   <span
                           class="inline-block h-4 w-4 rounded-full border border-slate-300"
@@ -174,7 +173,7 @@
                         </button>
                         <button
                                 type="button"
-                                class="product-color-option inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
+                                class="w-[140px] inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
                         >
                   <span
                           class="inline-block h-4 w-4 rounded-full border border-slate-300"
@@ -184,7 +183,7 @@
                         </button>
                         <button
                                 type="button"
-                                class="product-color-option inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
+                                class="w-[140px] inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
                         >
                   <span
                           class="inline-block h-4 w-4 rounded-full border border-slate-300"
@@ -233,10 +232,10 @@
             </section>
         </div>
 
-        <div class="product-tabs-button" data-tab-title="О комоде">
-            <div class="product-tabs-button-title">О комоде</div>
-            <div class="product-tabs-close">
-                <svg class="product-tabs-close-icon" width="24px" height="24px" viewBox="0 0 24 24"
+        <div class="flex justify-between items-center cursor-pointer py-3 border-t border-gray-200 mt-10 select-none" data-tab-title="О комоде">
+            <div class="text-sm font-medium">О комоде</div>
+            <div class="product-tabs-close flex items-center justify-center transition-transform duration-300 ease-in-out">
+                <svg class="w-6 h-6" width="24px" height="24px" viewBox="0 0 24 24"
                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g stroke="none" stroke-width="1px" fill="none" fill-rule="evenodd" stroke-linecap="square">
                         <g transform="translate(1.000000, 1.000000)" stroke="#222222">
@@ -247,9 +246,9 @@
                 </svg>
             </div>
         </div>
-        <section class="product-tabs" id="product-about-section" aria-labelledby="product-about-title"
+        <section class="border-t border-gray-200 mt-0 pt-6" id="product-about-section" aria-labelledby="product-about-title"
                  style="display: none;">
-            <h2 id="product-about-title" class="product-tabs-title">О комоде</h2>
+            <h2 id="product-about-title" class="text-sm font-semibold mb-2">О комоде</h2>
             <p class="text-sm text-slate-600 leading-relaxed mb-2">
                 Продуманные размеры и эргономичная высота делают Комод AVE удобным как для хранения вещей, так и для
                 размещения декора, техники или зеркала сверху.
@@ -260,16 +259,16 @@
             </p>
         </section>
 
-        <section class="product-recommendations" aria-labelledby="product-recommendations-title">
+        <section class="mt-12 pt-10 border-t border-gray-200" aria-labelledby="product-recommendations-title">
             <div class="flex items-center justify-between mb-4">
                 <h2 id="product-recommendations-title" class="text-base font-semibold">
                     Смотрите также
                 </h2>
             </div>
-            <div class="product-recommendations-grid">
+            <div class="grid gap-4 md:grid-cols-3">
                 <article class="rounded-lg border border-slate-200 p-4 text-center">
                     <div
-                            class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
+                            class="catalog-card-img relative pb-[100%] mb-3.5 bg-cover bg-center rounded-md transition-[background-image] duration-300 ease-in-out"
                             style="background-image: url('https://static.tildacdn.com/stor6537-6162-4531-a565-333335333165/7efefe5c281be79fe70feadea52ec095.png')"
                             data-hover-image="url('https://static.tildacdn.com/stor3634-6666-4862-b133-633465666162/c96ae021a0df799e7a7bd638b4c2d4ac.png')"
                     ></div>
@@ -292,7 +291,7 @@
 
                 <article class="rounded-lg border border-slate-200 p-4 text-center">
                     <div
-                            class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
+                            class="catalog-card-img relative pb-[100%] mb-3.5 bg-cover bg-center rounded-md transition-[background-image] duration-300 ease-in-out"
                             style="background-image: url('https://static.tildacdn.com/stor6261-3333-4134-b538-386438326235/aae35804cbee54d3bfbdf56da8cfbfe1.png')"
                             data-hover-image="url('https://static.tildacdn.com/stor3636-3233-4965-b039-636434356165/0580507bfae569d5801506fc3a290943.png')"
                     ></div>
@@ -315,7 +314,7 @@
 
                 <article class="rounded-lg border border-slate-200 p-4 text-center">
                     <div
-                            class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
+                            class="catalog-card-img relative pb-[100%] mb-3.5 bg-cover bg-center rounded-md transition-[background-image] duration-300 ease-in-out"
                             style="background-image: url('https://static.tildacdn.com/stor3737-3230-4238-a664-663732366265/754ee1c5fbe6a3dd0e79032398da63da.png')"
                             data-hover-image="url('https://static.tildacdn.com/stor6335-6136-4866-a166-653333656331/54906411ee662b9a433418f2219a97f7.png')"
                     ></div>

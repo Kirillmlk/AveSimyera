@@ -5,9 +5,20 @@ const menu = document.getElementById('mobile-menu')
 
 if (toggle && menu) {
   toggle.addEventListener('click', () => {
-    const isOpen = toggle.classList.toggle('t-menuburger_opened')
-    menu.classList.toggle('hidden', !isOpen)
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+    const isOpen = menu.classList.toggle('hidden')
+    const spans = toggle.querySelectorAll('span')
+    if (!isOpen) {
+      spans[0]?.classList.add('opacity-0')
+      spans[1]?.classList.add('rotate-45')
+      spans[2]?.classList.add('-rotate-45')
+      spans[3]?.classList.add('opacity-0')
+    } else {
+      spans[0]?.classList.remove('opacity-0')
+      spans[1]?.classList.remove('rotate-45')
+      spans[2]?.classList.remove('-rotate-45')
+      spans[3]?.classList.remove('opacity-0')
+    }
+    toggle.setAttribute('aria-expanded', !isOpen ? 'true' : 'false')
   })
 }
 
@@ -65,31 +76,13 @@ if (
     },
   ]
 
-  const heroFadeContainer = document.querySelector('.main-hero-section')
-
   let heroIndex = 0
 
   const renderHero = () => {
     const slide = heroSlides[heroIndex]
 
-    if (heroFadeContainer) {
-      heroFadeContainer.classList.add('opacity-0')
-      setTimeout(() => {
-        heroSection.style.backgroundImage = slide.bg
-        heroTitleMain.textContent = slide.titleMain
-        heroTitleSub.textContent = slide.titleSub
-        heroDescr.textContent = slide.descr
-        heroButton.textContent = slide.buttonText
-        heroButton.setAttribute('href', slide.buttonHref)
-        if (heroBullets.length) {
-          heroBullets.forEach((bullet, index) => {
-            bullet.classList.toggle('bg-white', index === heroIndex)
-            bullet.classList.toggle('bg-transparent', index !== heroIndex)
-          })
-        }
-        heroFadeContainer.classList.remove('opacity-0')
-      }, 500)
-    } else {
+    heroSection.classList.add('opacity-0')
+    setTimeout(() => {
       heroSection.style.backgroundImage = slide.bg
       heroTitleMain.textContent = slide.titleMain
       heroTitleSub.textContent = slide.titleSub
@@ -102,7 +95,8 @@ if (
           bullet.classList.toggle('bg-transparent', index !== heroIndex)
         })
       }
-    }
+      heroSection.classList.remove('opacity-0')
+    }, 500)
   }
 
   heroPrev.addEventListener('click', () => {
@@ -233,7 +227,8 @@ if (videoPlayButton && videoContainer && videoIframe) {
   videoPlayButton.addEventListener('click', () => {
     if (videoId) {
       videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`
-      videoContainer.classList.add('active')
+      videoContainer.classList.remove('hidden')
+    videoContainer.classList.add('block')
       videoPlayButton.style.display = 'none'
     }
   })
@@ -302,7 +297,11 @@ anchorLinks.forEach((link) => {
     smoothScrollTo(targetY, 1400)
 
     if (menu && toggle && !menu.classList.contains('hidden')) {
-      toggle.classList.remove('t-menuburger_opened')
+      const spans = toggle.querySelectorAll('span')
+      spans[0]?.classList.remove('opacity-0')
+      spans[1]?.classList.remove('rotate-45')
+      spans[2]?.classList.remove('-rotate-45')
+      spans[3]?.classList.remove('opacity-0')
       menu.classList.add('hidden')
       toggle.setAttribute('aria-expanded', 'false')
     }
@@ -443,46 +442,39 @@ const renderCartItems = () => {
     return
   }
 
+  const template = document.getElementById('cart-product-template')
+  if (!template) return
+  
   cartItems.forEach((item, index) => {
-    const productHtml = `
-      <div class="cart-product flex gap-3 py-4 border-b border-gray-100 w-full box-border min-w-0 last:border-b-0 last:pb-0" data-cart-product-i="${index}">
-        <div class="cart-product-thumb flex-shrink-0 w-20 h-20">
-          <div class="cart-product-img w-full h-full bg-cover bg-center rounded-lg" style="background-image:url('${item.imageUrl}');"></div>
-        </div>
-        <div class="cart-product-title flex-1 min-w-0 overflow-hidden">
-          <a class="text-inherit no-underline text-sm font-medium block mb-1 break-words" target="_blank" href="${item.productUrl}">${item.title}</a>
-          ${item.color ? `<div class="cart-product-option text-xs text-gray-500 mt-1"><div>Цвет: ${item.color}</div></div>` : ''}
-          <div class="cart-product-controls flex items-center gap-2 mt-2 flex-wrap">
-            <span class="cart-product-minus cursor-pointer inline-flex items-center justify-center w-6 h-6 rounded-full border border-gray-300 bg-white transition-colors duration-200 hover:bg-gray-100" data-product-index="${index}">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span class="cart-product-quantity min-w-6 text-center text-sm font-medium">${item.quantity}</span>
-            <span class="cart-product-plus cursor-pointer inline-flex items-center justify-center w-6 h-6 rounded-full border border-gray-300 bg-white transition-colors duration-200 hover:bg-gray-100" data-product-index="${index}">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M8 5v6M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </span>
-          </div>
-          <div class="cart-product-price flex items-center gap-1 mt-2 text-sm font-semibold whitespace-nowrap flex-shrink-0">
-            <div class="cart-price font-semibold">${formatPrice(item.price * item.quantity)}</div>
-            <div class="cart-currency font-normal">р.</div>
-          </div>
-        </div>
-        <div class="cart-product-delete-wrapper flex items-center pl-3 flex-shrink-0">
-          <span class="cart-product-delete cursor-pointer inline-flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-200 hover:bg-gray-100" data-product-index="${index}">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </span>
-        </div>
-      </div>
-    `
-    cartProducts.insertAdjacentHTML('beforeend', productHtml)
+    const clone = template.content.cloneNode(true)
+    const product = clone.querySelector('.cart-product')
+    const img = clone.querySelector('.cart-product-img')
+    const link = clone.querySelector('.cart-product-link')
+    const colorOption = clone.querySelector('.cart-product-option')
+    const colorText = clone.querySelector('.cart-product-color')
+    const quantity = clone.querySelector('.cart-product-quantity')
+    const price = clone.querySelector('.cart-price')
+    const minusBtn = clone.querySelector('.cart-product-minus')
+    const plusBtn = clone.querySelector('.cart-product-plus')
+    const deleteBtn = clone.querySelector('.cart-product-delete')
+    
+    product.setAttribute('data-cart-product-i', index)
+    img.style.backgroundImage = `url('${item.imageUrl}')`
+    link.href = item.productUrl
+    link.textContent = item.title
+    quantity.textContent = item.quantity
+    price.textContent = formatPrice(item.price * item.quantity)
+    
+    if (item.color) {
+      colorOption.style.display = 'block'
+      colorText.textContent = `Цвет: ${item.color}`
+    }
+    
+    minusBtn.setAttribute('data-product-index', index)
+    plusBtn.setAttribute('data-product-index', index)
+    deleteBtn.setAttribute('data-product-index', index)
+    
+    cartProducts.appendChild(clone)
   })
 
   attachCartItemHandlers()
@@ -567,7 +559,6 @@ addToCartButtons.forEach((button) => {
     
     const productData = getProductData(button)
     if (!productData || !productData.title || !productData.price) {
-      console.error('Не удалось получить данные о товаре')
       return
     }
 
@@ -616,7 +607,14 @@ if (productTabsButton && productTabsSection) {
   productTabsButton.addEventListener('click', () => {
     const isOpened = productTabsSection.style.display === 'block'
     productTabsSection.style.display = isOpened ? 'none' : 'block'
-    productTabsButton.classList.toggle('product-tabs-button--opened', !isOpened)
+    const closeIcon = productTabsButton.querySelector('.product-tabs-close')
+    if (closeIcon) {
+      if (!isOpened) {
+        closeIcon.classList.add('rotate-45')
+      } else {
+        closeIcon.classList.remove('rotate-45')
+      }
+    }
   })
 }
 
@@ -639,7 +637,6 @@ catalogCardImgs.forEach((imgElement) => {
 
 renderCartItems()
 
-// Checkout page functions
 const openCheckout = () => {
   const checkoutPage = document.getElementById('cart-checkout-page')
   if (!checkoutPage) return
@@ -674,46 +671,39 @@ const renderCheckoutItems = () => {
     return
   }
   
+  const template = document.getElementById('checkout-product-template')
+  if (!template) return
+  
   cartItems.forEach((item, index) => {
-    const productHtml = `
-      <div class="cart-product flex gap-3 py-4 border-b border-gray-100 w-full box-border min-w-0 last:border-b-0 last:pb-0" data-cart-product-i="${index}">
-        <div class="cart-product-thumb flex-shrink-0 w-20 h-20">
-          <div class="cart-product-img w-full h-full bg-cover bg-center rounded-lg" style="background-image:url('${item.imageUrl}');"></div>
-        </div>
-        <div class="cart-product-title flex-1 min-w-0 overflow-hidden">
-          <a class="text-inherit no-underline text-sm font-medium block mb-1 break-words" target="_blank" href="${item.productUrl}">${item.title}</a>
-          ${item.color ? `<div class="cart-product-option text-xs text-gray-500 mt-1"><div>Цвет: ${item.color}</div></div>` : ''}
-        </div>
-        <div class="cart-product-amount flex items-center gap-3 text-sm font-semibold whitespace-nowrap flex-shrink-0 m-0 sm:w-full sm:mt-2 sm:items-start">
-          <div class="cart-product-controls flex items-center gap-2 flex-nowrap m-0">
-            <span class="cart-product-minus cursor-pointer inline-flex items-center justify-center w-6 h-6 border-none bg-transparent transition-opacity duration-200 hover:opacity-70 text-gray-500" data-product-index="${index}">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span class="cart-product-quantity min-w-6 text-center text-sm font-medium">${item.quantity}</span>
-            <span class="cart-product-plus cursor-pointer inline-flex items-center justify-center w-6 h-6 border-none bg-transparent transition-opacity duration-200 hover:opacity-70 text-gray-500" data-product-index="${index}">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M8 5v6M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </span>
-          </div>
-          <div class="cart-checkout-price font-semibold whitespace-nowrap">${formatPrice(item.price * item.quantity)}</div>
-          <div class="cart-checkout-currency font-normal text-xs">р.</div>
-        </div>
-        <div class="cart-product-delete-wrapper flex items-center pl-3 flex-shrink-0">
-          <span class="cart-product-delete cursor-pointer inline-flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-200 hover:bg-gray-100 text-black" data-product-index="${index}">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </span>
-        </div>
-      </div>
-    `
-    checkoutProducts.insertAdjacentHTML('beforeend', productHtml)
+    const clone = template.content.cloneNode(true)
+    const product = clone.querySelector('.cart-product')
+    const img = clone.querySelector('.cart-product-img')
+    const link = clone.querySelector('.cart-product-link')
+    const colorOption = clone.querySelector('.cart-product-option')
+    const colorText = clone.querySelector('.cart-product-color')
+    const quantity = clone.querySelector('.cart-product-quantity')
+    const price = clone.querySelector('.cart-price')
+    const minusBtn = clone.querySelector('.cart-product-minus')
+    const plusBtn = clone.querySelector('.cart-product-plus')
+    const deleteBtn = clone.querySelector('.cart-product-delete')
+    
+    product.setAttribute('data-cart-product-i', index)
+    img.style.backgroundImage = `url('${item.imageUrl}')`
+    link.href = item.productUrl
+    link.textContent = item.title
+    quantity.textContent = item.quantity
+    price.textContent = formatPrice(item.price * item.quantity)
+    
+    if (item.color) {
+      colorOption.style.display = 'block'
+      colorText.textContent = `Цвет: ${item.color}`
+    }
+    
+    minusBtn.setAttribute('data-product-index', index)
+    plusBtn.setAttribute('data-product-index', index)
+    deleteBtn.setAttribute('data-product-index', index)
+    
+    checkoutProducts.appendChild(clone)
   })
   
   attachCheckoutItemHandlers()
@@ -764,7 +754,6 @@ const updateCheckoutTotals = () => {
   const discountBlock = document.getElementById('checkout-discounts')
   const totalEl = document.getElementById('checkout-total')
   
-  // Calculate discount (7% of subtotal)
   const discount = Math.round(subtotal * 0.07)
   const total = subtotal - discount
   
@@ -785,7 +774,6 @@ const updateCheckoutTotals = () => {
   }
 }
 
-// Attach checkout button handler
 const checkoutButton = document.querySelector('.cart-continue-btn')
 if (checkoutButton) {
   checkoutButton.addEventListener('click', () => {
@@ -795,7 +783,6 @@ if (checkoutButton) {
   })
 }
 
-// Attach checkout close handlers
 const checkoutBackBtn = document.getElementById('checkout-back')
 const checkoutCloseBtn = document.getElementById('checkout-close')
 
@@ -812,18 +799,14 @@ if (checkoutCloseBtn) {
   })
 }
 
-// Handle checkout form submission
 const checkoutForm = document.getElementById('checkout-form')
-if (checkoutForm) {
+  if (checkoutForm) {
   checkoutForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    // TODO: Add form submission logic here
-    console.log('Form submitted', new FormData(checkoutForm))
     alert('Форма отправлена! (Это демо-версия)')
   })
 }
 
-// Update checkout when cart changes
 const originalRenderCartItems = renderCartItems
 renderCartItems = function() {
   originalRenderCartItems()
