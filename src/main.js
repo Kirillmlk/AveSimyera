@@ -634,7 +634,8 @@ const openCheckout = () => {
   renderCheckoutItems()
   updateCheckoutTotals()
   
-  checkoutPage.classList.add('cart-checkout-page--shown')
+  checkoutPage.classList.remove('hidden', 'opacity-0')
+  checkoutPage.classList.add('block', 'opacity-100', 'cart-checkout-page--shown')
   document.body.style.overflow = 'hidden'
 }
 
@@ -642,7 +643,8 @@ const closeCheckout = () => {
   const checkoutPage = document.getElementById('cart-checkout-page')
   if (!checkoutPage) return
   
-  checkoutPage.classList.remove('cart-checkout-page--shown')
+  checkoutPage.classList.add('hidden', 'opacity-0')
+  checkoutPage.classList.remove('block', 'opacity-100', 'cart-checkout-page--shown')
   document.body.style.overflow = ''
 }
 
@@ -660,35 +662,35 @@ const renderCheckoutItems = () => {
   
   cartItems.forEach((item, index) => {
     const productHtml = `
-      <div class="cart-product" data-cart-product-i="${index}">
-        <div class="cart-product-thumb">
-          <div class="cart-product-img" style="background-image:url('${item.imageUrl}');"></div>
+      <div class="cart-product flex gap-3 py-4 border-b border-gray-100 w-full box-border min-w-0 last:border-b-0 last:pb-0" data-cart-product-i="${index}">
+        <div class="cart-product-thumb flex-shrink-0 w-20 h-20">
+          <div class="cart-product-img w-full h-full bg-cover bg-center rounded-lg" style="background-image:url('${item.imageUrl}');"></div>
         </div>
-        <div class="cart-product-title t-descr t-descr_sm">
-          <a style="color: inherit" target="_blank" href="${item.productUrl}">${item.title}</a>
-          ${item.color ? `<div class="cart-product-option"><div>Цвет: ${item.color}</div></div>` : ''}
+        <div class="cart-product-title flex-1 min-w-0 overflow-hidden">
+          <a class="text-inherit no-underline text-sm font-medium block mb-1 break-words" target="_blank" href="${item.productUrl}">${item.title}</a>
+          ${item.color ? `<div class="cart-product-option text-xs text-gray-500 mt-1"><div>Цвет: ${item.color}</div></div>` : ''}
         </div>
-        <div class="cart-product-amount t-descr t-descr_sm">
-          <div class="cart-product-controls t-descr t-descr_sm">
-            <span class="cart-product-minus" data-product-index="${index}">
+        <div class="cart-product-amount flex items-center gap-3 text-sm font-semibold whitespace-nowrap flex-shrink-0 m-0 sm:w-full sm:mt-2 sm:items-start">
+          <div class="cart-product-controls flex items-center gap-2 flex-nowrap m-0">
+            <span class="cart-product-minus cursor-pointer inline-flex items-center justify-center w-6 h-6 border-none bg-transparent transition-opacity duration-200 hover:opacity-70 text-gray-500" data-product-index="${index}">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
                 <path d="M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </span>
-            <span class="cart-product-quantity">${item.quantity}</span>
-            <span class="cart-product-plus" data-product-index="${index}">
+            <span class="cart-product-quantity min-w-6 text-center text-sm font-medium">${item.quantity}</span>
+            <span class="cart-product-plus cursor-pointer inline-flex items-center justify-center w-6 h-6 border-none bg-transparent transition-opacity duration-200 hover:opacity-70 text-gray-500" data-product-index="${index}">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
                 <path d="M8 5v6M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </span>
           </div>
-          <div class="cart-checkout-price">${formatPrice(item.price * item.quantity)}</div>
-          <div class="cart-checkout-currency">р.</div>
+          <div class="cart-checkout-price font-semibold whitespace-nowrap">${formatPrice(item.price * item.quantity)}</div>
+          <div class="cart-checkout-currency font-normal text-xs">р.</div>
         </div>
-        <div class="cart-product-delete-wrapper">
-          <span class="cart-product-delete" data-product-index="${index}">
+        <div class="cart-product-delete-wrapper flex items-center pl-3 flex-shrink-0">
+          <span class="cart-product-delete cursor-pointer inline-flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-200 hover:bg-gray-100 text-black" data-product-index="${index}">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
               <path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>

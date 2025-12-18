@@ -889,17 +889,17 @@
 </div>
 
 <!-- Checkout Page -->
-<div class="cart-checkout-page" id="cart-checkout-page">
-    <div class="cart-checkout-top">
-        <button type="button" class="cart-checkout-back" id="checkout-back" aria-label="Назад">
+<div class="cart-checkout-page fixed top-0 left-0 w-full h-screen bg-white z-[1001] hidden opacity-0 transition-opacity duration-300 ease-in-out overflow-y-auto" id="cart-checkout-page">
+    <div class="flex justify-between items-center p-5 border-b border-gray-200 sticky top-0 bg-white z-10 md:p-4 sm:p-3">
+        <button type="button" class="cart-checkout-back bg-transparent border-none cursor-pointer p-2 flex items-center justify-center transition-opacity duration-200 ease-in-out hover:opacity-70" id="checkout-back" aria-label="Назад">
             <svg role="presentation" class="cart-checkout-back-icon" width="1em" height="1em" viewBox="0 0 26 26">
                 <g fill-rule="evenodd" stroke-width="2" fill="#000">
                     <path d="m10.4142 5 1.4142 1.4142L5.829 12.414l17.5852.0002v2L5.829 14.414l5.9994 6.0002-1.4142 1.4142L2 13.4142 10.4142 5Z"></path>
                 </g>
             </svg>
         </button>
-        <div class="cart-checkout-heading">Ваш заказ</div>
-        <button type="button" class="cart-checkout-close" id="checkout-close" aria-label="Закрыть">
+        <div class="text-2xl font-semibold text-black md:text-xl sm:text-lg">Ваш заказ</div>
+        <button type="button" class="cart-checkout-close bg-transparent border-none cursor-pointer p-2 flex items-center justify-center transition-opacity duration-200 ease-in-out hover:opacity-70" id="checkout-close" aria-label="Закрыть">
             <svg role="presentation" class="cart-checkout-close-icon" width="1em" height="1em" viewBox="0 0 23 23">
                 <g fill-rule="evenodd" stroke-width="2" fill="#000">
                     <path d="M0 1.4142 2.1213-.707 23.3345 20.506l-2.1213 2.1213z"></path>
@@ -908,76 +908,76 @@
             </svg>
         </button>
     </div>
-    <div class="cart-checkout-content">
-        <div class="cart-checkout-form">
+    <div class="max-w-6xl mx-auto py-10 px-5 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 lg:py-5 lg:px-4 sm:py-4 sm:px-3">
+        <div class="cart-checkout-form flex flex-col gap-6">
             <form id="checkout-form" name="checkout-form" role="form" action="" method="POST" class="checkout-form">
-                <div class="form-group mt-6">
-                    <label for="checkout-name" class="form-label">Ваше имя</label>
-                    <input type="text" autocomplete="name" name="Name" id="checkout-name" class="form-input" required>
+                <div class="flex flex-col gap-1.5 mt-6">
+                    <label for="checkout-name" class="text-sm font-light text-black">Ваше имя</label>
+                    <input type="text" autocomplete="name" name="Name" id="checkout-name" class="w-full px-3 py-3 border border-black rounded text-sm font-light text-black bg-white transition-colors duration-200 focus:outline-none focus:border-black placeholder:text-black placeholder:opacity-50" required>
                 </div>
-                <div class="form-group mt-6">
-                    <label for="checkout-email" class="form-label">Ваш email</label>
-                    <input type="email" autocomplete="email" name="Email" id="checkout-email" class="form-input" required>
+                <div class="flex flex-col gap-1.5 mt-6">
+                    <label for="checkout-email" class="text-sm font-light text-black">Ваш email</label>
+                    <input type="email" autocomplete="email" name="Email" id="checkout-email" class="w-full px-3 py-3 border border-black rounded text-sm font-light text-black bg-white transition-colors duration-200 focus:outline-none focus:border-black placeholder:text-black placeholder:opacity-50" required>
                 </div>
-                <div class="form-group mt-6">
-                    <label for="checkout-phone" class="form-label">Телефон</label>
-                    <input type="tel" autocomplete="tel" name="Phone" id="checkout-phone" class="form-input" required>
+                <div class="flex flex-col gap-1.5 mt-6">
+                    <label for="checkout-phone" class="text-sm font-light text-black">Телефон</label>
+                    <input type="tel" autocomplete="tel" name="Phone" id="checkout-phone" class="w-full px-3 py-3 border border-black rounded text-sm font-light text-black bg-white transition-colors duration-200 focus:outline-none focus:border-black placeholder:text-black placeholder:opacity-50" required>
                 </div>
-                <div class="form-group mt-6">
-                    <label for="checkout-promocode" class="form-label">Промокод</label>
-                    <div class="form-promocode-wrapper">
-                        <input type="text" name="promocode" id="checkout-promocode" class="form-input form-promocode-input" autocomplete="off">
-                        <button type="button" class="form-promocode-btn">Проверить</button>
+                <div class="flex flex-col gap-1.5 mt-6">
+                    <label for="checkout-promocode" class="text-sm font-light text-black">Промокод</label>
+                    <div class="flex gap-0 w-full">
+                        <input type="text" name="promocode" id="checkout-promocode" class="flex-1 px-3 py-3 border border-black rounded-r-none rounded-l text-sm font-light text-black bg-white transition-colors duration-200 focus:outline-none focus:border-black placeholder:text-black placeholder:opacity-50" autocomplete="off">
+                        <button type="button" class="px-5 py-3 bg-black text-white border border-black border-l-0 rounded-l-none rounded-r text-sm font-light cursor-pointer whitespace-nowrap transition-colors duration-200 hover:bg-gray-800">Проверить</button>
                     </div>
                 </div>
-                <div class="form-group mt-6">
-                    <div class="form-label">Доставка</div>
-                    <div class="form-radio-group">
-                        <label class="form-radio">
-                            <input type="radio" name="delivery" value="pickup" class="form-radio-input" checked required>
-                            <span class="form-radio-label">Самовывоз бесплатно</span>
+                <div class="flex flex-col gap-1.5 mt-6">
+                    <div class="text-sm font-light text-black">Доставка</div>
+                    <div class="form-radio-group flex flex-col gap-3 transition-colors duration-200">
+                        <label class="form-radio flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="delivery" value="pickup" class="w-[18px] h-[18px] cursor-pointer" checked required>
+                            <span class="text-xs font-light text-black cursor-pointer">Самовывоз бесплатно</span>
                         </label>
-                        <label class="form-radio">
-                            <input type="radio" name="delivery" value="courier" class="form-radio-input" required>
-                            <span class="form-radio-label">Доставка курьером 250 руб.</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group mt-6">
-                    <div class="form-label">Варианты оплаты</div>
-                    <div class="form-radio-group">
-                        <label class="form-radio">
-                            <input type="radio" name="payment" value="card" class="form-radio-input" required>
-                            <span class="form-radio-label">Картой</span>
-                        </label>
-                        <label class="form-radio">
-                            <input type="radio" name="payment" value="cash" class="form-radio-input" required>
-                            <span class="form-radio-label">Наличными</span>
+                        <label class="form-radio flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="delivery" value="courier" class="w-[18px] h-[18px] cursor-pointer" required>
+                            <span class="text-xs font-light text-black cursor-pointer">Доставка курьером 250 руб.</span>
                         </label>
                     </div>
                 </div>
-                <div class="form-submit">
-                    <button class="form-submit-btn" type="submit">Оформить</button>
+                <div class="flex flex-col gap-1.5 mt-6">
+                    <div class="text-sm font-light text-black">Варианты оплаты</div>
+                    <div class="form-radio-group flex flex-col gap-3 transition-colors duration-200">
+                        <label class="form-radio flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="payment" value="card" class="w-[18px] h-[18px] cursor-pointer" required>
+                            <span class="text-xs font-light text-black cursor-pointer">Картой</span>
+                        </label>
+                        <label class="form-radio flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="payment" value="cash" class="w-[18px] h-[18px] cursor-pointer" required>
+                            <span class="text-xs font-light text-black cursor-pointer">Наличными</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <button class="w-full px-6 py-3 bg-black text-white border-none rounded text-base font-medium cursor-pointer transition-colors duration-200 hover:bg-gray-800" type="submit">Оформить</button>
                 </div>
             </form>
         </div>
-        <div class="cart-checkout-info">
-            <div class="cart-checkout-info-wrapper">
-                <div class="cart-checkout-products" id="checkout-products">
+        <div class="cart-checkout-info flex flex-col gap-5">
+            <div class="cart-checkout-info-wrapper sticky top-[100px] lg:static">
+                <div class="flex flex-col gap-0 mb-5" id="checkout-products">
                 </div>
-                <div class="cart-checkout-totals">
-                    <div class="cart-checkout-prodamount">
-                        <span class="cart-checkout-prodamount-label">Сумма: </span>
-                        <span class="cart-checkout-prodamount-amount"><span id="checkout-subtotal">0</span> <span class="cart-checkout-currency">р.</span></span>
+                <div class="border-t border-gray-200 pt-5">
+                    <div class="flex justify-between items-center text-sm mb-3">
+                        <span class="text-gray-500">Сумма: </span>
+                        <span class="font-semibold"><span id="checkout-subtotal">0</span> <span class="font-normal">р.</span></span>
                     </div>
-                    <div class="cart-checkout-discounts" id="checkout-discounts">
-                        <span class="cart-checkout-discounts-label">Скидка ?: </span>
-                        <span class="cart-checkout-discounts-value"><span id="checkout-discount-amount">0</span> <span class="cart-checkout-currency">р.</span></span>
+                    <div class="flex justify-between items-center text-sm mb-3" id="checkout-discounts">
+                        <span class="text-gray-500">Скидка ?: </span>
+                        <span class="font-semibold"><span id="checkout-discount-amount">0</span> <span class="font-normal">р.</span></span>
                     </div>
-                    <div class="cart-checkout-totalamount">
-                        <div class="cart-checkout-totalamount-content">
-                            <span class="cart-checkout-totalamount-label">Итоговая сумма: </span>
-                            <span class="cart-checkout-totalamount-amount"><span id="checkout-total">0</span> <span class="cart-checkout-currency">р.</span></span>
+                    <div class="border-t border-gray-200 pt-5 mt-5">
+                        <div class="flex justify-between items-center text-xl font-semibold">
+                            <span class="text-black">Итоговая сумма: </span>
+                            <span class="font-semibold"><span id="checkout-total">0</span> <span class="font-normal">р.</span></span>
                         </div>
                     </div>
                 </div>
