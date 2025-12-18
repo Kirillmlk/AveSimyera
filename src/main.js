@@ -313,3 +313,72 @@ anchorLinks.forEach((link) => {
     }
   })
 })
+
+// Cart sidebar functionality
+const cartIcon = document.getElementById('cart-icon')
+const cartIconMobile = document.getElementById('cart-icon-mobile')
+const cartSidebar = document.getElementById('cart-sidebar')
+const cartClose = document.getElementById('cart-close')
+const cartCounter = document.getElementById('cart-counter')
+const cartCounterMobile = document.getElementById('cart-counter-mobile')
+
+const cartOverlay = document.getElementById('cart-overlay')
+
+const openCart = () => {
+  if (cartSidebar && cartOverlay) {
+    cartOverlay.style.display = 'block'
+    cartSidebar.style.display = 'block'
+    setTimeout(() => {
+      cartOverlay.classList.add('t706__sidebar-overlay_showed')
+      cartSidebar.classList.add('t706__sidebar_showed')
+    }, 10)
+    document.body.style.overflow = 'hidden'
+  }
+}
+
+const closeCart = () => {
+  if (cartSidebar && cartOverlay) {
+    cartSidebar.classList.remove('t706__sidebar_showed')
+    cartOverlay.classList.remove('t706__sidebar-overlay_showed')
+    setTimeout(() => {
+      cartSidebar.style.display = 'none'
+      cartOverlay.style.display = 'none'
+      document.body.style.overflow = ''
+    }, 300)
+  }
+}
+
+if (cartIcon && cartSidebar) {
+  cartIcon.addEventListener('click', openCart)
+}
+
+if (cartIconMobile && cartSidebar) {
+  cartIconMobile.addEventListener('click', () => {
+    openCart()
+    // Close mobile menu when opening cart
+    if (menu && toggle && !menu.classList.contains('hidden')) {
+      toggle.classList.remove('t-menuburger_opened')
+      menu.classList.add('hidden')
+      toggle.setAttribute('aria-expanded', 'false')
+    }
+  })
+}
+
+if (cartClose) {
+  cartClose.addEventListener('click', closeCart)
+}
+
+// Close cart when clicking overlay
+if (cartOverlay) {
+  cartOverlay.addEventListener('click', closeCart)
+}
+
+// Add to cart buttons - open cart when clicked
+const addToCartButtons = document.querySelectorAll('.add-to-cart-btn')
+
+addToCartButtons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    e.preventDefault()
+    openCart()
+  })
+})
