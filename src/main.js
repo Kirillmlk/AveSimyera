@@ -316,11 +316,16 @@ const cartOverlay = document.getElementById('cart-overlay')
 
 const openCart = () => {
   if (cartSidebar && cartOverlay) {
-    cartOverlay.style.display = 'block'
-    cartSidebar.style.display = 'block'
+    cartOverlay.classList.remove('hidden', 'opacity-0')
+    cartOverlay.classList.add('block', 'opacity-100', 'cart-overlay--shown')
+    cartSidebar.classList.remove('hidden')
+    cartSidebar.classList.add('block', 'cart-sidebar--shown')
     setTimeout(() => {
-      cartOverlay.classList.add('cart-overlay--shown')
-      cartSidebar.classList.add('cart-sidebar--shown')
+      const sidebarContent = cartSidebar.querySelector('.cart-sidebar-content')
+      if (sidebarContent) {
+        sidebarContent.classList.remove('translate-x-full')
+        sidebarContent.classList.add('translate-x-0')
+      }
     }, 10)
     document.body.style.overflow = 'hidden'
   }
@@ -328,11 +333,18 @@ const openCart = () => {
 
 const closeCart = () => {
   if (cartSidebar && cartOverlay) {
+    const sidebarContent = cartSidebar.querySelector('.cart-sidebar-content')
+    if (sidebarContent) {
+      sidebarContent.classList.remove('translate-x-0')
+      sidebarContent.classList.add('translate-x-full')
+    }
     cartSidebar.classList.remove('cart-sidebar--shown')
     cartOverlay.classList.remove('cart-overlay--shown')
     setTimeout(() => {
-      cartSidebar.style.display = 'none'
-      cartOverlay.style.display = 'none'
+      cartSidebar.classList.add('hidden')
+      cartSidebar.classList.remove('block')
+      cartOverlay.classList.add('hidden', 'opacity-0')
+      cartOverlay.classList.remove('block', 'opacity-100')
       document.body.style.overflow = ''
     }, 300)
   }
@@ -433,35 +445,35 @@ const renderCartItems = () => {
 
   cartItems.forEach((item, index) => {
     const productHtml = `
-      <div class="cart-product" data-cart-product-i="${index}">
-        <div class="cart-product-thumb">
-          <div class="cart-product-img" style="background-image:url('${item.imageUrl}');"></div>
+      <div class="cart-product flex gap-3 py-4 border-b border-gray-100 w-full box-border min-w-0 last:border-b-0 last:pb-0" data-cart-product-i="${index}">
+        <div class="cart-product-thumb flex-shrink-0 w-20 h-20">
+          <div class="cart-product-img w-full h-full bg-cover bg-center rounded-lg" style="background-image:url('${item.imageUrl}');"></div>
         </div>
-        <div class="cart-product-title t-descr t-descr_sm">
-          <a style="color: inherit" target="_blank" href="${item.productUrl}">${item.title}</a>
-          ${item.color ? `<div class="cart-product-option"><div>Цвет: ${item.color}</div></div>` : ''}
-          <div class="cart-product-controls t-descr t-descr_sm">
-            <span class="cart-product-minus" data-product-index="${index}">
+        <div class="cart-product-title flex-1 min-w-0 overflow-hidden">
+          <a class="text-inherit no-underline text-sm font-medium block mb-1 break-words" target="_blank" href="${item.productUrl}">${item.title}</a>
+          ${item.color ? `<div class="cart-product-option text-xs text-gray-500 mt-1"><div>Цвет: ${item.color}</div></div>` : ''}
+          <div class="cart-product-controls flex items-center gap-2 mt-2 flex-wrap">
+            <span class="cart-product-minus cursor-pointer inline-flex items-center justify-center w-6 h-6 rounded-full border border-gray-300 bg-white transition-colors duration-200 hover:bg-gray-100" data-product-index="${index}">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
                 <path d="M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </span>
-            <span class="cart-product-quantity">${item.quantity}</span>
-            <span class="cart-product-plus" data-product-index="${index}">
+            <span class="cart-product-quantity min-w-6 text-center text-sm font-medium">${item.quantity}</span>
+            <span class="cart-product-plus cursor-pointer inline-flex items-center justify-center w-6 h-6 rounded-full border border-gray-300 bg-white transition-colors duration-200 hover:bg-gray-100" data-product-index="${index}">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
                 <path d="M8 5v6M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </span>
           </div>
-          <div class="cart-product-price t-descr t-descr_sm">
-            <div class="cart-price">${formatPrice(item.price * item.quantity)}</div>
-            <div class="cart-currency">р.</div>
+          <div class="cart-product-price flex items-center gap-1 mt-2 text-sm font-semibold whitespace-nowrap flex-shrink-0">
+            <div class="cart-price font-semibold">${formatPrice(item.price * item.quantity)}</div>
+            <div class="cart-currency font-normal">р.</div>
           </div>
         </div>
-        <div class="cart-product-delete-wrapper">
-          <span class="cart-product-delete" data-product-index="${index}">
+        <div class="cart-product-delete-wrapper flex items-center pl-3 flex-shrink-0">
+          <span class="cart-product-delete cursor-pointer inline-flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-200 hover:bg-gray-100" data-product-index="${index}">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
               <path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -522,11 +534,13 @@ const updateCartCounter = () => {
       counter.textContent = totalQuantity
     }
     if (cartIconWrapper) {
-      cartIconWrapper.style.display = 'flex'
+      cartIconWrapper.classList.remove('hidden')
+      cartIconWrapper.classList.add('flex')
     }
   } else {
     if (cartIconWrapper) {
-      cartIconWrapper.style.display = 'none'
+      cartIconWrapper.classList.add('hidden')
+      cartIconWrapper.classList.remove('flex')
     }
   }
 }
