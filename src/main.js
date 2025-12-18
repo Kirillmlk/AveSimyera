@@ -595,4 +595,15 @@ if (colorOptions.length > 0) {
   })
 }
 
+const productTabsButton = document.querySelector('.product-tabs-button')
+const productTabsSection = document.getElementById('product-about-section')
+
+if (productTabsButton && productTabsSection) {
+  productTabsButton.addEventListener('click', () => {
+    const isOpened = productTabsSection.style.display === 'block'
+    productTabsSection.style.display = isOpened ? 'none' : 'block'
+    productTabsButton.classList.toggle('product-tabs-button--opened', !isOpened)
+  })
+}
+
 renderCartItems()

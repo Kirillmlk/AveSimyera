@@ -60,9 +60,41 @@
   border-color: #000000;
 }
 
-.product-tabs {
+.product-tabs-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px 0;
   border-top: 1px solid #e5e7eb;
   margin-top: 2.5rem;
+  user-select: none;
+}
+
+.product-tabs-button-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.product-tabs-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.product-tabs-button.product-tabs-button--opened .product-tabs-close {
+  transform: rotate(45deg);
+}
+
+.product-tabs-close-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.product-tabs {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 0;
   padding-top: 1.5rem;
 }
 

@@ -1,330 +1,347 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Комод AVE — AveSimyera</title>
-  </head>
-  <body class="bg-white text-slate-900">
-  <header class="bg-black border-b border-black md:bg-white md:border-slate-200">
+</head>
+<body class="bg-white text-slate-900">
+<header class="bg-black border-b border-black md:bg-white md:border-slate-200">
     <div class="mx-auto flex items-center justify-end md:justify-between min-h-16 px-5 md:h-24 md:px-10">
-      <div class="hidden md:flex items-center gap-3">
-        <img
-                src="https://static.tildacdn.pub/tild3138-6536-4239-b937-383134663631/4.png"
-                alt="AveSimyera"
-                class="h-20 w-20 object-contain"
-        />
-      </div>
-
-      <nav class="hidden items-center gap-6 md:flex ml-auto pr-8">
-        <a class="text-lg font-normal text-white md:text-black no-underline" href="#catalog">Каталог</a>
-        <a class="text-lg font-normal text-white md:text-black no-underline" href="#gallery">Примеры работ</a>
-        <a class="text-lg font-normal text-white md:text-black no-underline" href="#onas">О нас</a>
-        <a class="text-lg font-normal text-white md:text-black no-underline" href="#dostavka">Доставка</a>
-        <a class="text-lg font-normal text-white md:text-black no-underline" href="#contacts">Контакты</a>
-      </nav>
-
-      <div class="hidden items-center gap-4 md:flex">
-        <a class="whitespace-nowrap text-lg text-white md:text-black no-underline pr-8" href="tel:+79279978884">+7 927 997 888 4</a>
-        <div class="flex items-center gap-2 text-slate-600">
-          <button class="inline-flex h-10 w-10 items-center justify-center text-slate-700 focus:outline-none"
-                  aria-label="Telegram">
-            <svg class="h-8 w-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Zm21.977-68.056c.386-4.38-4.24-2.576-4.24-2.576-3.415 1.414-6.937 2.85-10.497 4.302-11.04 4.503-22.444 9.155-32.159 13.734-5.268 1.932-2.184 3.864-2.184 3.864l8.351 2.577c3.855 1.16 5.91-.129 5.91-.129l17.988-12.238c6.424-4.38 4.882-.773 3.34.773l-13.49 12.882c-2.056 1.804-1.028 3.35-.129 4.123 2.55 2.249 8.82 6.364 11.557 8.16.712.467 1.185.778 1.292.858.642.515 4.111 2.834 6.424 2.319 2.313-.516 2.57-3.479 2.57-3.479l3.083-20.226c.462-3.511.993-6.886 1.417-9.582.4-2.546.705-4.485.767-5.362Z"
-                      fill="#000000"
-              ></path>
-            </svg>
-          </button>
-          <button class="inline-flex h-10 w-10 items-center justify-center text-slate-700 focus:outline-none"
-                  aria-label="WhatsApp">
-            <svg class="h-8 w-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100ZM69.7626 28.9928C64.6172 23.841 57.7739 21.0027 50.4832 21C35.4616 21 23.2346 33.2252 23.2292 48.2522C23.2274 53.0557 24.4823 57.7446 26.8668 61.8769L23 76L37.4477 72.2105C41.4282 74.3822 45.9107 75.5262 50.4714 75.528H50.4823C65.5029 75.528 77.7299 63.301 77.7363 48.2749C77.7408 40.9915 74.9089 34.1446 69.7626 28.9928ZM62.9086 53.9588C62.2274 53.6178 58.8799 51.9708 58.2551 51.7435C57.6313 51.5161 57.1766 51.4024 56.7228 52.0845C56.269 52.7666 54.964 54.2998 54.5666 54.7545C54.1692 55.2092 53.7718 55.2656 53.0915 54.9246C52.9802 54.8688 52.8283 54.803 52.6409 54.7217C51.6819 54.3057 49.7905 53.4855 47.6151 51.5443C45.5907 49.7382 44.2239 47.5084 43.8265 46.8272C43.4291 46.1452 43.7837 45.7769 44.1248 45.4376C44.3292 45.2338 44.564 44.9478 44.7987 44.662C44.9157 44.5194 45.0328 44.3768 45.146 44.2445C45.4345 43.9075 45.56 43.6516 45.7302 43.3049C45.7607 43.2427 45.7926 43.1776 45.8272 43.1087C46.0545 42.654 45.9409 42.2565 45.7708 41.9155C45.6572 41.6877 45.0118 40.1167 44.4265 38.6923C44.1355 37.984 43.8594 37.3119 43.671 36.8592C43.1828 35.687 42.6883 35.69 42.2913 35.6924C42.2386 35.6928 42.1876 35.6931 42.1386 35.6906C41.7421 35.6706 41.2874 35.667 40.8336 35.667C40.3798 35.667 39.6423 35.837 39.0175 36.5191C38.9773 36.5631 38.9323 36.6111 38.8834 36.6633C38.1738 37.4209 36.634 39.0648 36.634 42.2002C36.634 45.544 39.062 48.7748 39.4124 49.2411L39.415 49.2444C39.4371 49.274 39.4767 49.3309 39.5333 49.4121C40.3462 50.5782 44.6615 56.7691 51.0481 59.5271C52.6732 60.2291 53.9409 60.6475 54.9303 60.9612C56.5618 61.4796 58.046 61.4068 59.22 61.2313C60.5286 61.0358 63.2487 59.5844 63.8161 57.9938C64.3836 56.4033 64.3836 55.0392 64.2136 54.7554C64.0764 54.5258 63.7545 54.3701 63.2776 54.1395C63.1633 54.0843 63.0401 54.0247 62.9086 53.9588Z"
-                      fill="#000000"
-              ></path>
-            </svg>
-          </button>
-          <button class="inline-flex h-10 w-10 items-center justify-center text-slate-700 focus:outline-none"
-                  aria-label="VK">
-            <svg class="h-8 w-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Zm-5.08-76.414a48.135 48.135 0 0 0 2.187-.422c.324-.08 1.735-.153 3.134-.163 2.047-.013 3.002.067 4.89.41 7.843 1.428 13.918 5.42 18.472 12.135 1.99 2.934 3.603 7.076 4.066 10.44.313 2.276.265 7.758-.084 9.632-.373 2.006-1.503 5.362-2.424 7.2-2.132 4.25-5.556 8.135-9.378 10.638-1.183.774-3.108 1.843-3.838 2.13-.324.127-.669.291-.766.364-.387.29-3.382 1.191-5.337 1.604-1.807.382-2.488.44-5.279.445-2.862.007-3.437-.042-5.395-.455-3.863-.814-7.02-2.082-9.589-3.85-.587-.404-1.059-.363-4.407.381-3.654.812-4.57.94-4.88.682-.382-.316-.335-.8.4-4.153.749-3.409.938-4.215.702-4.867-.082-.227-.216-.436-.397-.731-2.693-4.394-3.984-9.062-3.997-14.46-.012-4.75.867-8.55 2.898-12.526.727-1.424 2.002-3.481 2.66-4.293.753-.927 4.735-4.855 5.312-5.24 2.412-1.604 2.967-1.933 4.722-2.79 1.91-.934 4.466-1.787 6.329-2.11Zm-4.47 22.33c-.949-2.514-1.303-3.314-1.605-3.615-.316-.317-.585-.352-3.088-.4-2.973-.058-3.103-.022-3.396.94-.119.39.636 3.353.932 3.657a.624.624 0 0 1 .156.375c0 .21.655 1.726 1.42 3.283.396.807 2.79 4.884 2.955 5.034.051.047.547.692 1.102 1.433 1.524 2.037 3.773 4.03 5.762 5.105 1.877 1.015 4.904 1.58 7.043 1.312 1.52-.19 1.615-.358 1.615-2.881 0-3.283.375-3.786 2.166-2.903.73.36 3.253 2.726 4.916 4.61.417.473.924.947 1.127 1.054.385.204 5.693.285 6.19.094.496-.19.516-1.17.043-2.138-.546-1.117-2.396-3.43-4.437-5.55-1.08-1.121-1.575-1.76-1.575-2.033 0-.34.841-1.897 1.161-2.15.107-.084.956-1.339 1.282-1.893.094-.16.636-1.07 1.204-2.023 1.464-2.455 1.755-3.08 1.864-4.002.088-.74.057-.84-.335-1.097-.367-.24-.822-.275-3.044-.228-2.49.051-2.631.073-3.043.46-.237.223-.479.565-.536.758-.168.565-1.947 4.025-2.2 4.278-.127.127-.23.305-.23.397 0 .281-1.514 2.377-2.339 3.24-.903.943-1.416 1.2-1.888.947-.31-.165-.326-.399-.329-4.679-.002-3.293-.06-4.617-.216-4.926l-.213-.421H45.35l-.25.447c-.24.425-.219.501.414 1.518l.666 1.07v4.3c0 4.29 0 4.3-.367 4.352-.5.07-1.505-.864-2.465-2.296-.797-1.188-2.506-4.389-2.898-5.429Z"
-                      fill="#000000"
-              ></path>
-            </svg>
-          </button>
+        <div class="hidden md:flex items-center gap-3">
+            <img
+                    src="https://static.tildacdn.pub/tild3138-6536-4239-b937-383134663631/4.png"
+                    alt="AveSimyera"
+                    class="h-20 w-20 object-contain"
+            />
         </div>
-      </div>
 
-      <button
-              id="mobile-menu-toggle"
-              type="button"
-              class="t-menuburger md:hidden focus:outline-none"
-              aria-label="Навигационное меню"
-              aria-expanded="false"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <nav class="hidden items-center gap-6 md:flex ml-auto pr-8">
+            <a class="text-lg font-normal text-white md:text-black no-underline" href="#catalog">Каталог</a>
+            <a class="text-lg font-normal text-white md:text-black no-underline" href="#gallery">Примеры работ</a>
+            <a class="text-lg font-normal text-white md:text-black no-underline" href="#onas">О нас</a>
+            <a class="text-lg font-normal text-white md:text-black no-underline" href="#dostavka">Доставка</a>
+            <a class="text-lg font-normal text-white md:text-black no-underline" href="#contacts">Контакты</a>
+        </nav>
+
+        <div class="hidden items-center gap-4 md:flex">
+            <a class="whitespace-nowrap text-lg text-white md:text-black no-underline pr-8" href="tel:+79279978884">+7
+                927 997 888 4</a>
+            <div class="flex items-center gap-2 text-slate-600">
+                <button class="inline-flex h-10 w-10 items-center justify-center text-slate-700 focus:outline-none"
+                        aria-label="Telegram">
+                    <svg class="h-8 w-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Zm21.977-68.056c.386-4.38-4.24-2.576-4.24-2.576-3.415 1.414-6.937 2.85-10.497 4.302-11.04 4.503-22.444 9.155-32.159 13.734-5.268 1.932-2.184 3.864-2.184 3.864l8.351 2.577c3.855 1.16 5.91-.129 5.91-.129l17.988-12.238c6.424-4.38 4.882-.773 3.34.773l-13.49 12.882c-2.056 1.804-1.028 3.35-.129 4.123 2.55 2.249 8.82 6.364 11.557 8.16.712.467 1.185.778 1.292.858.642.515 4.111 2.834 6.424 2.319 2.313-.516 2.57-3.479 2.57-3.479l3.083-20.226c.462-3.511.993-6.886 1.417-9.582.4-2.546.705-4.485.767-5.362Z"
+                                fill="#000000"
+                        ></path>
+                    </svg>
+                </button>
+                <button class="inline-flex h-10 w-10 items-center justify-center text-slate-700 focus:outline-none"
+                        aria-label="WhatsApp">
+                    <svg class="h-8 w-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100ZM69.7626 28.9928C64.6172 23.841 57.7739 21.0027 50.4832 21C35.4616 21 23.2346 33.2252 23.2292 48.2522C23.2274 53.0557 24.4823 57.7446 26.8668 61.8769L23 76L37.4477 72.2105C41.4282 74.3822 45.9107 75.5262 50.4714 75.528H50.4823C65.5029 75.528 77.7299 63.301 77.7363 48.2749C77.7408 40.9915 74.9089 34.1446 69.7626 28.9928ZM62.9086 53.9588C62.2274 53.6178 58.8799 51.9708 58.2551 51.7435C57.6313 51.5161 57.1766 51.4024 56.7228 52.0845C56.269 52.7666 54.964 54.2998 54.5666 54.7545C54.1692 55.2092 53.7718 55.2656 53.0915 54.9246C52.9802 54.8688 52.8283 54.803 52.6409 54.7217C51.6819 54.3057 49.7905 53.4855 47.6151 51.5443C45.5907 49.7382 44.2239 47.5084 43.8265 46.8272C43.4291 46.1452 43.7837 45.7769 44.1248 45.4376C44.3292 45.2338 44.564 44.9478 44.7987 44.662C44.9157 44.5194 45.0328 44.3768 45.146 44.2445C45.4345 43.9075 45.56 43.6516 45.7302 43.3049C45.7607 43.2427 45.7926 43.1776 45.8272 43.1087C46.0545 42.654 45.9409 42.2565 45.7708 41.9155C45.6572 41.6877 45.0118 40.1167 44.4265 38.6923C44.1355 37.984 43.8594 37.3119 43.671 36.8592C43.1828 35.687 42.6883 35.69 42.2913 35.6924C42.2386 35.6928 42.1876 35.6931 42.1386 35.6906C41.7421 35.6706 41.2874 35.667 40.8336 35.667C40.3798 35.667 39.6423 35.837 39.0175 36.5191C38.9773 36.5631 38.9323 36.6111 38.8834 36.6633C38.1738 37.4209 36.634 39.0648 36.634 42.2002C36.634 45.544 39.062 48.7748 39.4124 49.2411L39.415 49.2444C39.4371 49.274 39.4767 49.3309 39.5333 49.4121C40.3462 50.5782 44.6615 56.7691 51.0481 59.5271C52.6732 60.2291 53.9409 60.6475 54.9303 60.9612C56.5618 61.4796 58.046 61.4068 59.22 61.2313C60.5286 61.0358 63.2487 59.5844 63.8161 57.9938C64.3836 56.4033 64.3836 55.0392 64.2136 54.7554C64.0764 54.5258 63.7545 54.3701 63.2776 54.1395C63.1633 54.0843 63.0401 54.0247 62.9086 53.9588Z"
+                                fill="#000000"
+                        ></path>
+                    </svg>
+                </button>
+                <button class="inline-flex h-10 w-10 items-center justify-center text-slate-700 focus:outline-none"
+                        aria-label="VK">
+                    <svg class="h-8 w-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Zm-5.08-76.414a48.135 48.135 0 0 0 2.187-.422c.324-.08 1.735-.153 3.134-.163 2.047-.013 3.002.067 4.89.41 7.843 1.428 13.918 5.42 18.472 12.135 1.99 2.934 3.603 7.076 4.066 10.44.313 2.276.265 7.758-.084 9.632-.373 2.006-1.503 5.362-2.424 7.2-2.132 4.25-5.556 8.135-9.378 10.638-1.183.774-3.108 1.843-3.838 2.13-.324.127-.669.291-.766.364-.387.29-3.382 1.191-5.337 1.604-1.807.382-2.488.44-5.279.445-2.862.007-3.437-.042-5.395-.455-3.863-.814-7.02-2.082-9.589-3.85-.587-.404-1.059-.363-4.407.381-3.654.812-4.57.94-4.88.682-.382-.316-.335-.8.4-4.153.749-3.409.938-4.215.702-4.867-.082-.227-.216-.436-.397-.731-2.693-4.394-3.984-9.062-3.997-14.46-.012-4.75.867-8.55 2.898-12.526.727-1.424 2.002-3.481 2.66-4.293.753-.927 4.735-4.855 5.312-5.24 2.412-1.604 2.967-1.933 4.722-2.79 1.91-.934 4.466-1.787 6.329-2.11Zm-4.47 22.33c-.949-2.514-1.303-3.314-1.605-3.615-.316-.317-.585-.352-3.088-.4-2.973-.058-3.103-.022-3.396.94-.119.39.636 3.353.932 3.657a.624.624 0 0 1 .156.375c0 .21.655 1.726 1.42 3.283.396.807 2.79 4.884 2.955 5.034.051.047.547.692 1.102 1.433 1.524 2.037 3.773 4.03 5.762 5.105 1.877 1.015 4.904 1.58 7.043 1.312 1.52-.19 1.615-.358 1.615-2.881 0-3.283.375-3.786 2.166-2.903.73.36 3.253 2.726 4.916 4.61.417.473.924.947 1.127 1.054.385.204 5.693.285 6.19.094.496-.19.516-1.17.043-2.138-.546-1.117-2.396-3.43-4.437-5.55-1.08-1.121-1.575-1.76-1.575-2.033 0-.34.841-1.897 1.161-2.15.107-.084.956-1.339 1.282-1.893.094-.16.636-1.07 1.204-2.023 1.464-2.455 1.755-3.08 1.864-4.002.088-.74.057-.84-.335-1.097-.367-.24-.822-.275-3.044-.228-2.49.051-2.631.073-3.043.46-.237.223-.479.565-.536.758-.168.565-1.947 4.025-2.2 4.278-.127.127-.23.305-.23.397 0 .281-1.514 2.377-2.339 3.24-.903.943-1.416 1.2-1.888.947-.31-.165-.326-.399-.329-4.679-.002-3.293-.06-4.617-.216-4.926l-.213-.421H45.35l-.25.447c-.24.425-.219.501.414 1.518l.666 1.07v4.3c0 4.29 0 4.3-.367 4.352-.5.07-1.505-.864-2.465-2.296-.797-1.188-2.506-4.389-2.898-5.429Z"
+                                fill="#000000"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <button
+                id="mobile-menu-toggle"
+                type="button"
+                class="t-menuburger md:hidden focus:outline-none"
+                aria-label="Навигационное меню"
+                aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
-  </header>
+</header>
 
-    <main class="product-page py-10 md:py-16">
-      <div class="max-w-6xl mx-auto px-5 md:px-8">
+<main class="product-page py-10 md:py-16">
+    <div class="max-w-6xl mx-auto px-5 md:px-8">
         <a href="/index.html#catalog" class="inline-flex items-center text-sm text-slate-500 hover:text-black mb-6">
-          <svg
-            class="mr-2 h-4 w-4"
-            viewBox="0 0 26 26"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M10.4142136,5 L11.8284271,6.41421356 L5.829,12.414 L23.4142136,12.4142136 L23.4142136,14.4142136 L5.829,14.414 L11.8284271,20.4142136 L10.4142136,21.8284271 L2,13.4142136 L10.4142136,5 Z"
-              fill="currentColor"
-            ></path>
-          </svg>
-          <span>Назад в каталог</span>
+            <svg
+                    class="mr-2 h-4 w-4"
+                    viewBox="0 0 26 26"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+            >
+                <path
+                        d="M10.4142136,5 L11.8284271,6.41421356 L5.829,12.414 L23.4142136,12.4142136 L23.4142136,14.4142136 L5.829,14.414 L11.8284271,20.4142136 L10.4142136,21.8284271 L2,13.4142136 L10.4142136,5 Z"
+                        fill="currentColor"
+                ></path>
+            </svg>
+            <span>Назад в каталог</span>
         </a>
 
         <div class="product-page-main gap-8">
-          <!-- Left: gallery -->
-          <section aria-label="Фотогалерея товара">
-            <div class="product-gallery-main">
-              <img
-                src="https://static.tildacdn.com/stor3964-6534-4533-a564-333664666235/e05a1969ecf2a32f2b31dee5de6bcf82.png"
-                alt="Комод AVE — общий вид"
-              />
-            </div>
-            <div class="product-gallery-thumbs mt-3">
-              <button type="button" class="product-gallery-thumb product-gallery-thumb--active">
-                <img
-                  src="https://static.tildacdn.com/stor3964-6534-4533-a564-333664666235/e05a1969ecf2a32f2b31dee5de6bcf82.png"
-                  alt="Комод AVE — общий вид"
-                />
-              </button>
-              <button type="button" class="product-gallery-thumb">
-                <img
-                  src="https://static.tildacdn.com/stor3065-3932-4332-a265-646166353862/41b393a30e1c3a24eec7ef1d8b56afc2.png"
-                  alt="Комод AVE — вариант в дубе сонома"
-                />
-              </button>
-              <button type="button" class="product-gallery-thumb">
-                <img
-                  src="https://static.tildacdn.com/stor3963-6337-4563-b930-353938346666/b422df7e698710cb42cbde94450ecd89.png"
-                  alt="Комод AVE — вариант в белом цвете"
-                />
-              </button>
-              <button type="button" class="product-gallery-thumb">
-                <img
-                  src="https://static.tildacdn.com/stor3737-3534-4539-a234-343761393363/69be76b733facfa0f5c1ab158148f95b.png"
-                  alt="Комод AVE — вид сбоку"
-                />
-              </button>
-              <button type="button" class="product-gallery-thumb">
-                <img
-                  src="https://static.tildacdn.com/stor3137-3463-4461-a561-643032653737/194ad137fb1765861acb9c75e22e5009.png"
-                  alt="Комод AVE — вариант цвета фасадов"
-                />
-              </button>
-              <button type="button" class="product-gallery-thumb">
-                <img
-                  src="https://static.tildacdn.com/stor3038-3632-4736-a564-393662373663/329f03243890d15ca2061f879c7ccb10.png"
-                  alt="Комод AVE — вариант в тёмно‑зеленом цвете"
-                />
-              </button>
-            </div>
-          </section>
-
-          <!-- Right: info -->
-          <section aria-labelledby="product-title" class="mt-8 lg:mt-0">
-            <h1 id="product-title" class="text-2xl md:text-3xl font-semibold mb-2">Комод AVE</h1>
-            <div class="text-sm text-slate-500 mb-4">AveSimeyre • Корпусная мебель</div>
-
-            <div class="flex items-baseline gap-3 mb-5">
-              <div class="text-2xl font-semibold">
-                20 000
-                <span class="text-base font-normal align-baseline">р.</span>
-              </div>
-              <div class="text-base line-through text-slate-400">22 000 р.</div>
-            </div>
-
-            <div class="mb-6">
-              <div class="text-xs font-semibold text-slate-600 mb-2 uppercase tracking-wide">Цвет</div>
-              <div class="flex flex-col gap-2">
-                <button
-                  type="button"
-                  class="product-color-option inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
-                >
-                  <span
-                    class="inline-block h-4 w-4 rounded-full border border-slate-300"
-                    style="background-color: #ffffff"
-                  ></span>
-                  Белый
-                </button>
-                <button
-                  type="button"
-                  class="product-color-option inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
-                >
-                  <span
-                    class="inline-block h-4 w-4 rounded-full border border-slate-300"
-                    style="background-color: #d2b48c"
-                  ></span>
-                  Дуб сонома
-                </button>
-                <button
-                  type="button"
-                  class="product-color-option inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
-                >
-                  <span
-                    class="inline-block h-4 w-4 rounded-full border border-slate-300"
-                    style="background-color: #234236"
-                  ></span>
-                  Тёмно‑зелёный
-                </button>
-              </div>
-            </div>
-
-            <div class="flex flex-wrap gap-3 mb-6">
-              <button
-                type="button"
-                class="add-to-cart-btn inline-flex items-center justify-center rounded-md bg-black px-6 py-2.5 text-sm font-medium text-white"
-              >
-                В корзину
-              </button>
-              <a
-                href="tel:+79279978884"
-                class="inline-flex items-center justify-center rounded-md border border-black px-6 py-2.5 text-sm font-medium text-black no-underline"
-              >
-                Купить по телефону
-              </a>
-            </div>
-
-            <div class="text-sm text-slate-600 leading-relaxed mb-6">
-              Комод может быть выполнен в других размерах и цветах тканей по запросу. Идеально подходит для спальни,
-              гостиной или детской комнаты — лаконичный дизайн легко вписывается в любой современный интерьер.
-            </div>
-
-            <dl class="space-y-1 text-sm text-slate-700">
-              <div class="flex gap-2">
-                <dt class="w-24 text-slate-500">Размеры:</dt>
-                <dd>ДxШxВ: 1000 × 550 × 870 мм</dd>
-              </div>
-              <div class="flex gap-2">
-                <dt class="w-24 text-slate-500">Вес:</dt>
-                <dd>40 кг</dd>
-              </div>
-              <div class="flex gap-2">
-                <dt class="w-24 text-slate-500">Материал:</dt>
-                <dd>ЛДСП 16 мм, кромка ПВХ</dd>
-              </div>
-            </dl>
-
-            <section class="product-tabs" aria-labelledby="product-about-title">
-              <h2 id="product-about-title" class="product-tabs-title">О комоде</h2>
-              <p class="text-sm text-slate-600 leading-relaxed mb-2">
-                Продуманные размеры и эргономичная высота делают Комод AVE удобным как для хранения вещей, так и для
-                размещения декора, техники или зеркала сверху.
-              </p>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                Механизмы и фурнитура подбираются с учётом ежедневной эксплуатации, чтобы комод оставался тихим,
-                надёжным и сохранял аккуратный внешний вид на долгие годы.
-              </p>
+            <!-- Left: gallery -->
+            <section aria-label="Фотогалерея товара">
+                <div class="product-gallery-main">
+                    <img
+                            src="https://static.tildacdn.com/stor3964-6534-4533-a564-333664666235/e05a1969ecf2a32f2b31dee5de6bcf82.png"
+                            alt="Комод AVE — общий вид"
+                    />
+                </div>
+                <div class="product-gallery-thumbs mt-3">
+                    <button type="button" class="product-gallery-thumb product-gallery-thumb--active">
+                        <img
+                                src="https://static.tildacdn.com/stor3964-6534-4533-a564-333664666235/e05a1969ecf2a32f2b31dee5de6bcf82.png"
+                                alt="Комод AVE — общий вид"
+                        />
+                    </button>
+                    <button type="button" class="product-gallery-thumb">
+                        <img
+                                src="https://static.tildacdn.com/stor3065-3932-4332-a265-646166353862/41b393a30e1c3a24eec7ef1d8b56afc2.png"
+                                alt="Комод AVE — вариант в дубе сонома"
+                        />
+                    </button>
+                    <button type="button" class="product-gallery-thumb">
+                        <img
+                                src="https://static.tildacdn.com/stor3963-6337-4563-b930-353938346666/b422df7e698710cb42cbde94450ecd89.png"
+                                alt="Комод AVE — вариант в белом цвете"
+                        />
+                    </button>
+                    <button type="button" class="product-gallery-thumb">
+                        <img
+                                src="https://static.tildacdn.com/stor3737-3534-4539-a234-343761393363/69be76b733facfa0f5c1ab158148f95b.png"
+                                alt="Комод AVE — вид сбоку"
+                        />
+                    </button>
+                    <button type="button" class="product-gallery-thumb">
+                        <img
+                                src="https://static.tildacdn.com/stor3137-3463-4461-a561-643032653737/194ad137fb1765861acb9c75e22e5009.png"
+                                alt="Комод AVE — вариант цвета фасадов"
+                        />
+                    </button>
+                    <button type="button" class="product-gallery-thumb">
+                        <img
+                                src="https://static.tildacdn.com/stor3038-3632-4736-a564-393662373663/329f03243890d15ca2061f879c7ccb10.png"
+                                alt="Комод AVE — вариант в тёмно‑зеленом цвете"
+                        />
+                    </button>
+                </div>
             </section>
-          </section>
+
+            <!-- Right: info -->
+            <section aria-labelledby="product-title" class="mt-8 lg:mt-0">
+                <h1 id="product-title" class="text-2xl md:text-3xl font-semibold mb-2">Комод AVE</h1>
+                <div class="text-sm text-slate-500 mb-4">AveSimeyre • Корпусная мебель</div>
+
+                <div class="flex items-baseline gap-3 mb-5">
+                    <div class="text-2xl font-semibold">
+                        20 000
+                        <span class="text-base font-normal align-baseline">р.</span>
+                    </div>
+                    <div class="text-base line-through text-slate-400">22 000 р.</div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="text-xs font-semibold text-slate-600 mb-2 uppercase tracking-wide">Цвет</div>
+                    <div class="flex flex-col gap-2">
+                        <button
+                                type="button"
+                                class="product-color-option inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
+                        >
+                  <span
+                          class="inline-block h-4 w-4 rounded-full border border-slate-300"
+                          style="background-color: #ffffff"
+                  ></span>
+                            Белый
+                        </button>
+                        <button
+                                type="button"
+                                class="product-color-option inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
+                        >
+                  <span
+                          class="inline-block h-4 w-4 rounded-full border border-slate-300"
+                          style="background-color: #d2b48c"
+                  ></span>
+                            Дуб сонома
+                        </button>
+                        <button
+                                type="button"
+                                class="product-color-option inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs"
+                        >
+                  <span
+                          class="inline-block h-4 w-4 rounded-full border border-slate-300"
+                          style="background-color: #234236"
+                  ></span>
+                            Тёмно‑зелёный
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <button
+                            type="button"
+                            class="add-to-cart-btn inline-flex items-center justify-center rounded-md bg-black px-6 py-2.5 text-sm font-medium text-white"
+                    >
+                        В корзину
+                    </button>
+                    <a
+                            href="tel:+79279978884"
+                            class="inline-flex items-center justify-center rounded-md border border-black px-6 py-2.5 text-sm font-medium text-black no-underline"
+                    >
+                        Купить по телефону
+                    </a>
+                </div>
+
+                <div class="text-sm text-slate-600 leading-relaxed mb-6">
+                    Комод может быть выполнен в других размерах и цветах тканей по запросу. Идеально подходит для
+                    спальни,
+                    гостиной или детской комнаты — лаконичный дизайн легко вписывается в любой современный интерьер.
+                </div>
+
+                <dl class="space-y-1 text-sm text-slate-700">
+                    <div class="flex gap-2">
+                        <dt class="w-24 text-slate-500">Размеры:</dt>
+                        <dd>ДxШxВ: 1000 × 550 × 870 мм</dd>
+                    </div>
+                    <div class="flex gap-2">
+                        <dt class="w-24 text-slate-500">Вес:</dt>
+                        <dd>40 кг</dd>
+                    </div>
+                    <div class="flex gap-2">
+                        <dt class="w-24 text-slate-500">Материал:</dt>
+                        <dd>ЛДСП 16 мм, кромка ПВХ</dd>
+                    </div>
+                </dl>
+            </section>
         </div>
 
-        <section class="product-recommendations" aria-labelledby="product-recommendations-title">
-          <div class="flex items-center justify-between mb-4">
-            <h2 id="product-recommendations-title" class="text-base font-semibold">
-              Смотрите также
-            </h2>
-          </div>
-          <div class="product-recommendations-grid">
-            <article class="rounded-lg border border-slate-200 p-4 text-center">
-              <div
-                class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
-                style="background-image: url('https://static.tildacdn.com/stor6537-6162-4531-a565-333335333165/7efefe5c281be79fe70feadea52ec095.png')"
-              ></div>
-              <div class="text-sm font-semibold mb-1">Кресло AVE1</div>
-              <div class="text-xs text-slate-500 mb-2">Мягкие и удобные кресла</div>
-              <div class="text-sm font-semibold mb-3">
-                12 000 <span class="text-xs font-normal">р.</span>
-              </div>
-              <div class="flex justify-center gap-1.5">
-                <a
-                  href="#"
-                  class="catalog-btn-main inline-flex items-center justify-center w-36 h-11 rounded-md bg-black text-white text-xs"
-                >Подробнее</a>
-                <a
-                  href="#"
-                  class="add-to-cart-btn catalog-btn-secondary inline-flex items-center justify-center w-36 h-11 rounded-md border border-black text-black text-xs"
-                >В корзину</a>
-              </div>
-            </article>
-
-            <article class="rounded-lg border border-slate-200 p-4 text-center">
-              <div
-                class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
-                style="background-image: url('https://static.tildacdn.com/stor6261-3333-4134-b538-386438326235/aae35804cbee54d3bfbdf56da8cfbfe1.png')"
-              ></div>
-              <div class="text-sm font-semibold mb-1">Кровать AVE1</div>
-              <div class="text-xs text-slate-500 mb-2">Раскладывающаяся детская кровать</div>
-              <div class="text-sm font-semibold mb-3">
-                30 000 <span class="text-xs font-normal">р.</span>
-              </div>
-              <div class="flex justify-center gap-1.5">
-                <a
-                  href="#"
-                  class="catalog-btn-main inline-flex items-center justify-center w-36 h-11 rounded-md bg-black text-white text-xs"
-                >Подробнее</a>
-                <a
-                  href="#"
-                  class="add-to-cart-btn catalog-btn-secondary inline-flex items-center justify-center w-36 h-11 rounded-md border border-black text-black text-xs"
-                >В корзину</a>
-              </div>
-            </article>
-
-            <article class="rounded-lg border border-slate-200 p-4 text-center">
-              <div
-                class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
-                style="background-image: url('https://static.tildacdn.com/stor3737-3230-4238-a664-663732366265/754ee1c5fbe6a3dd0e79032398da63da.png')"
-              ></div>
-              <div class="text-sm font-semibold mb-1">Стул AVE1</div>
-              <div class="text-xs text-slate-500 mb-2">Мягкие и удобные стулья</div>
-              <div class="text-sm font-semibold mb-3">
-                16 000 <span class="text-xs font-normal">р.</span>
-              </div>
-              <div class="flex justify-center gap-1.5">
-                <a
-                  href="#"
-                  class="catalog-btn-main inline-flex items-center justify-center w-36 h-11 rounded-md bg-black text-white text-xs"
-                >Подробнее</a>
-                <a
-                  href="#"
-                  class="add-to-cart-btn catalog-btn-secondary inline-flex items-center justify-center w-36 h-11 rounded-md border border-black text-black text-xs"
-                >В корзину</a>
-              </div>
-            </article>
-          </div>
+        <div class="product-tabs-button" data-tab-title="О комоде">
+            <div class="product-tabs-button-title">О комоде</div>
+            <div class="product-tabs-close">
+                <svg class="product-tabs-close-icon" width="24px" height="24px" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g stroke="none" stroke-width="1px" fill="none" fill-rule="evenodd" stroke-linecap="square">
+                        <g transform="translate(1.000000, 1.000000)" stroke="#222222">
+                            <path d="M0,11 L22,11"></path>
+                            <path d="M11,0 L11,22"></path>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <section class="product-tabs" id="product-about-section" aria-labelledby="product-about-title"
+                 style="display: none;">
+            <h2 id="product-about-title" class="product-tabs-title">О комоде</h2>
+            <p class="text-sm text-slate-600 leading-relaxed mb-2">
+                Продуманные размеры и эргономичная высота делают Комод AVE удобным как для хранения вещей, так и для
+                размещения декора, техники или зеркала сверху.
+            </p>
+            <p class="text-sm text-slate-600 leading-relaxed">
+                Механизмы и фурнитура подбираются с учётом ежедневной эксплуатации, чтобы комод оставался тихим,
+                надёжным и сохранял аккуратный внешний вид на долгие годы.
+            </p>
         </section>
-      </div>
-    </main>
 
-    <footer class="bg-black text-white flex items-center justify-center text-center h-20 mt-10">
-      AveSimyera
-    </footer>
+        <section class="product-recommendations" aria-labelledby="product-recommendations-title">
+            <div class="flex items-center justify-between mb-4">
+                <h2 id="product-recommendations-title" class="text-base font-semibold">
+                    Смотрите также
+                </h2>
+            </div>
+            <div class="product-recommendations-grid">
+                <article class="rounded-lg border border-slate-200 p-4 text-center">
+                    <div
+                            class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
+                            style="background-image: url('https://static.tildacdn.com/stor6537-6162-4531-a565-333335333165/7efefe5c281be79fe70feadea52ec095.png')"
+                    ></div>
+                    <div class="text-sm font-semibold mb-1">Кресло AVE1</div>
+                    <div class="text-xs text-slate-500 mb-2">Мягкие и удобные кресла</div>
+                    <div class="text-sm font-semibold mb-3">
+                        12 000 <span class="text-xs font-normal">р.</span>
+                    </div>
+                    <div class="flex justify-center gap-1.5">
+                        <a
+                                href="#"
+                                class="catalog-btn-main inline-flex items-center justify-center w-36 h-11 rounded-md bg-black text-white text-xs"
+                        >Подробнее</a>
+                        <a
+                                href="#"
+                                class="add-to-cart-btn catalog-btn-secondary inline-flex items-center justify-center w-36 h-11 rounded-md border border-black text-black text-xs"
+                        >В корзину</a>
+                    </div>
+                </article>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+                <article class="rounded-lg border border-slate-200 p-4 text-center">
+                    <div
+                            class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
+                            style="background-image: url('https://static.tildacdn.com/stor6261-3333-4134-b538-386438326235/aae35804cbee54d3bfbdf56da8cfbfe1.png')"
+                    ></div>
+                    <div class="text-sm font-semibold mb-1">Кровать AVE1</div>
+                    <div class="text-xs text-slate-500 mb-2">Раскладывающаяся детская кровать</div>
+                    <div class="text-sm font-semibold mb-3">
+                        30 000 <span class="text-xs font-normal">р.</span>
+                    </div>
+                    <div class="flex justify-center gap-1.5">
+                        <a
+                                href="#"
+                                class="catalog-btn-main inline-flex items-center justify-center w-36 h-11 rounded-md bg-black text-white text-xs"
+                        >Подробнее</a>
+                        <a
+                                href="#"
+                                class="add-to-cart-btn catalog-btn-secondary inline-flex items-center justify-center w-36 h-11 rounded-md border border-black text-black text-xs"
+                        >В корзину</a>
+                    </div>
+                </article>
+
+                <article class="rounded-lg border border-slate-200 p-4 text-center">
+                    <div
+                            class="catalog-card-img mb-3.5 bg-cover bg-center rounded-md"
+                            style="background-image: url('https://static.tildacdn.com/stor3737-3230-4238-a664-663732366265/754ee1c5fbe6a3dd0e79032398da63da.png')"
+                    ></div>
+                    <div class="text-sm font-semibold mb-1">Стул AVE1</div>
+                    <div class="text-xs text-slate-500 mb-2">Мягкие и удобные стулья</div>
+                    <div class="text-sm font-semibold mb-3">
+                        16 000 <span class="text-xs font-normal">р.</span>
+                    </div>
+                    <div class="flex justify-center gap-1.5">
+                        <a
+                                href="#"
+                                class="catalog-btn-main inline-flex items-center justify-center w-36 h-11 rounded-md bg-black text-white text-xs"
+                        >Подробнее</a>
+                        <a
+                                href="#"
+                                class="add-to-cart-btn catalog-btn-secondary inline-flex items-center justify-center w-36 h-11 rounded-md border border-black text-black text-xs"
+                        >В корзину</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer class="bg-black text-white flex items-center justify-center text-center h-20 mt-10">
+    AveSimyera
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
 </html>
 
