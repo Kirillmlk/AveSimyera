@@ -834,15 +834,14 @@
     AveSimyera
 </div>
 
-<!-- Cart Sidebar -->
-<div class="t706__sidebar-overlay" id="cart-overlay"></div>
-<div class="t706__sidebar" id="cart-sidebar">
-    <div class="t706__sidebar-content">
-        <div class="t706__sidebar-top">
-            <div class="t706__sidebar-heading">Ваш заказ</div>
-            <div class="t706__sidebar-close">
-                <button type="button" class="t706__sidebar-close-btn" id="cart-close" aria-label="Закрыть корзину">
-                    <svg role="presentation" class="t706__close-icon t706__sidebar-close-icon" width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<div class="cart-overlay" id="cart-overlay"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-sidebar-content">
+        <div class="cart-sidebar-top">
+            <div class="cart-sidebar-heading">Ваш заказ</div>
+            <div class="cart-sidebar-close">
+                <button type="button" class="cart-sidebar-close-btn" id="cart-close" aria-label="Закрыть корзину">
+                    <svg role="presentation" class="cart-close-icon" width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <g stroke="none" stroke-width="1" fill="#000" fill-rule="evenodd">
                             <rect transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) " x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
                             <rect transform="translate(11.313708, 11.313708) rotate(-315.000000) translate(-11.313708, -11.313708) " x="10.3137085" y="-3.6862915" width="2" height="30"></rect>
@@ -851,39 +850,38 @@
                 </button>
             </div>
         </div>
-        <div class="t706__sidebar-products" id="cart-products">
-            <!-- Products will be added here dynamically -->
+        <div class="cart-products" id="cart-products">
         </div>
-        <div class="t706__sidebar-prodamount-wrap">
-            <span class="t706__sidebar-prodamount-label">Сумма: </span>
-            <span class="t706__sidebar-prodamount">
-                <span class="t706__cartwin-prodamount-price">0</span>
-                <span class="t706__cartwin-prodamount-currency">р.</span>
+        <div class="cart-subtotal">
+            <span class="cart-subtotal-label">Сумма: </span>
+            <span class="cart-subtotal-amount">
+                <span class="cart-price">0</span>
+                <span class="cart-currency">р.</span>
             </span>
         </div>
-        <div class="t706__cartwin-totalamount-wrap">
-            <div class="t706__cartwin-totalamount-content">
-                <span class="t706__sidebar-totalamount-label">Итоговая сумма: </span>
-                <span class="t706__sidebar-totalamount">
-                    <span class="t706__cartwin-prodamount-price">0</span>
-                    <span class="t706__cartwin-prodamount-currency">р.</span>
+        <div class="cart-total">
+            <div class="cart-total-content">
+                <span class="cart-total-label">Итоговая сумма: </span>
+                <span class="cart-total-amount">
+                    <span class="cart-price">0</span>
+                    <span class="cart-currency">р.</span>
                 </span>
             </div>
         </div>
-        <div class="t706__sidebar-bottom">
-            <button class="t706__sidebar-continue" type="button">Оформить</button>
+        <div class="cart-sidebar-bottom">
+            <button class="cart-continue-btn" type="button">Оформить</button>
         </div>
     </div>
 </div>
 
-<div id="cart-icon-wrapper" class="t706__carticon-wrapper t706__carticon-fixed" style="display: none;">
-    <div class="t706__carticon-imgwrap">
-        <svg role="img" class="t706__carticon-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<div id="cart-icon-wrapper" class="cart-icon-wrapper cart-icon-fixed" style="display: none;">
+    <div class="cart-icon-imgwrap">
+        <svg role="img" class="cart-icon-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
             <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M44 18h10v45H10V18h10z"></path>
             <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M22 24V11c0-5.523 4.477-10 10-10s10 4.477 10 10v13"></path>
         </svg>
     </div>
-    <div id="cart-counter" class="t706__carticon-counter js-carticon-counter">0</div>
+    <div id="cart-counter" class="cart-icon-counter js-carticon-counter">0</div>
 </div>
 
 <script type="module" src="/src/main.js"></script>

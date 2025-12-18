@@ -319,8 +319,8 @@ const openCart = () => {
     cartOverlay.style.display = 'block'
     cartSidebar.style.display = 'block'
     setTimeout(() => {
-      cartOverlay.classList.add('t706__sidebar-overlay_showed')
-      cartSidebar.classList.add('t706__sidebar_showed')
+      cartOverlay.classList.add('cart-overlay--shown')
+      cartSidebar.classList.add('cart-sidebar--shown')
     }, 10)
     document.body.style.overflow = 'hidden'
   }
@@ -328,8 +328,8 @@ const openCart = () => {
 
 const closeCart = () => {
   if (cartSidebar && cartOverlay) {
-    cartSidebar.classList.remove('t706__sidebar_showed')
-    cartOverlay.classList.remove('t706__sidebar-overlay_showed')
+    cartSidebar.classList.remove('cart-sidebar--shown')
+    cartOverlay.classList.remove('cart-overlay--shown')
     setTimeout(() => {
       cartSidebar.style.display = 'none'
       cartOverlay.style.display = 'none'
@@ -433,35 +433,35 @@ const renderCartItems = () => {
 
   cartItems.forEach((item, index) => {
     const productHtml = `
-      <div class="t706__product" data-cart-product-i="${index}">
-        <div class="t706__product-thumb">
-          <div class="t706__product-imgdiv" style="background-image:url('${item.imageUrl}');"></div>
+      <div class="cart-product" data-cart-product-i="${index}">
+        <div class="cart-product-thumb">
+          <div class="cart-product-img" style="background-image:url('${item.imageUrl}');"></div>
         </div>
-        <div class="t706__product-title t-descr t-descr_sm">
+        <div class="cart-product-title t-descr t-descr_sm">
           <a style="color: inherit" target="_blank" href="${item.productUrl}">${item.title}</a>
-          ${item.color ? `<div class="t706__product-title__option"><div>Цвет: ${item.color}</div></div>` : ''}
-          <div class="t706__product-plusminus t-descr t-descr_sm">
-            <span class="t706__product-minus" data-product-index="${index}">
+          ${item.color ? `<div class="cart-product-option"><div>Цвет: ${item.color}</div></div>` : ''}
+          <div class="cart-product-controls t-descr t-descr_sm">
+            <span class="cart-product-minus" data-product-index="${index}">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
                 <path d="M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </span>
-            <span class="t706__product-quantity">${item.quantity}</span>
-            <span class="t706__product-plus" data-product-index="${index}">
+            <span class="cart-product-quantity">${item.quantity}</span>
+            <span class="cart-product-plus" data-product-index="${index}">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
                 <path d="M8 5v6M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </span>
           </div>
-          <div class="t706__product-amount t-descr t-descr_sm">
-            <div class="t706__cartwin-prodamount-price">${formatPrice(item.price * item.quantity)}</div>
-            <div class="t706__cartwin-prodamount-currency">р.</div>
+          <div class="cart-product-price t-descr t-descr_sm">
+            <div class="cart-price">${formatPrice(item.price * item.quantity)}</div>
+            <div class="cart-currency">р.</div>
           </div>
         </div>
-        <div class="t706__product-del-wrapper">
-          <span class="t706__product-del" data-product-index="${index}">
+        <div class="cart-product-delete-wrapper">
+          <span class="cart-product-delete" data-product-index="${index}">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
               <path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -479,9 +479,9 @@ const renderCartItems = () => {
 }
 
 const attachCartItemHandlers = () => {
-  const minusButtons = document.querySelectorAll('.t706__product-minus')
-  const plusButtons = document.querySelectorAll('.t706__product-plus')
-  const deleteButtons = document.querySelectorAll('.t706__product-del')
+  const minusButtons = document.querySelectorAll('.cart-product-minus')
+  const plusButtons = document.querySelectorAll('.cart-product-plus')
+  const deleteButtons = document.querySelectorAll('.cart-product-delete')
 
   minusButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -533,8 +533,8 @@ const updateCartCounter = () => {
 
 const updateCartTotal = () => {
   const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
-  const prodAmountPrice = document.querySelector('.t706__sidebar-prodamount .t706__cartwin-prodamount-price')
-  const totalAmountPrice = document.querySelector('.t706__sidebar-totalamount .t706__cartwin-prodamount-price')
+  const prodAmountPrice = document.querySelector('.cart-subtotal-amount .cart-price')
+  const totalAmountPrice = document.querySelector('.cart-total-amount .cart-price')
   
   if (prodAmountPrice) {
     prodAmountPrice.textContent = formatPrice(total)
