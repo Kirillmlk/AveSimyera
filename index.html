@@ -888,6 +888,124 @@
     <div id="cart-counter" class="cart-icon-counter js-carticon-counter">0</div>
 </div>
 
+<!-- Checkout Page -->
+<div class="cart-checkout-page" id="cart-checkout-page">
+    <div class="cart-checkout-top">
+        <button type="button" class="cart-checkout-back" id="checkout-back" aria-label="Назад">
+            <svg role="presentation" class="cart-checkout-back-icon" width="1em" height="1em" viewBox="0 0 26 26">
+                <g fill-rule="evenodd" stroke-width="2" fill="#000">
+                    <path d="m10.4142 5 1.4142 1.4142L5.829 12.414l17.5852.0002v2L5.829 14.414l5.9994 6.0002-1.4142 1.4142L2 13.4142 10.4142 5Z"></path>
+                </g>
+            </svg>
+        </button>
+        <div class="cart-checkout-heading">Ваш заказ</div>
+        <button type="button" class="cart-checkout-close" id="checkout-close" aria-label="Закрыть">
+            <svg role="presentation" class="cart-checkout-close-icon" width="1em" height="1em" viewBox="0 0 23 23">
+                <g fill-rule="evenodd" stroke-width="2" fill="#000">
+                    <path d="M0 1.4142 2.1213-.707 23.3345 20.506l-2.1213 2.1213z"></path>
+                    <path d="m21.2132 0 2.1213 2.1213L2.1213 23.3345 0 21.2132z"></path>
+                </g>
+            </svg>
+        </button>
+    </div>
+    <div class="cart-checkout-content">
+        <div class="cart-checkout-form">
+            <form id="checkout-form" name="checkout-form" role="form" action="" method="POST" class="checkout-form">
+                <div class="form-group">
+                    <label for="checkout-name" class="form-label">Ваше имя</label>
+                    <input type="text" autocomplete="name" name="Name" id="checkout-name" class="form-input" required>
+                    <div class="form-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-email" class="form-label">Ваш email</label>
+                    <input type="email" autocomplete="email" name="Email" id="checkout-email" class="form-input" required>
+                    <div class="form-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-phone" class="form-label">Телефон</label>
+                    <input type="tel" autocomplete="tel" name="Phone" id="checkout-phone" class="form-input" required>
+                    <div class="form-error"></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-checkbox-group">
+                        <input type="checkbox" class="form-checkbox" id="checkout-remember" name="remember" checked>
+                        <label for="checkout-remember" class="form-checkbox-label">Запомнить контакты в браузере для повторной покупки</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-promocode" class="form-label">Промокод</label>
+                    <input type="text" name="promocode" id="checkout-promocode" class="form-input" autocomplete="off">
+                    <div class="form-error"></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-label">Доставка</div>
+                    <div class="form-radio-group">
+                        <label class="form-radio">
+                            <input type="radio" name="delivery" value="pickup" class="form-radio-input" checked required>
+                            <span class="form-radio-label">Самовывоз бесплатно</span>
+                        </label>
+                        <label class="form-radio">
+                            <input type="radio" name="delivery" value="courier" class="form-radio-input" required>
+                            <span class="form-radio-label">Доставка курьером 250 руб.</span>
+                        </label>
+                    </div>
+                    <div class="form-error"></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-label">Варианты оплаты</div>
+                    <div class="form-radio-group">
+                        <label class="form-radio">
+                            <input type="radio" name="payment" value="card" class="form-radio-input" required>
+                            <span class="form-radio-label">Картой</span>
+                        </label>
+                        <label class="form-radio">
+                            <input type="radio" name="payment" value="cash" class="form-radio-input" required>
+                            <span class="form-radio-label">Наличными</span>
+                        </label>
+                    </div>
+                    <div class="form-error"></div>
+                </div>
+                <div class="form-submit">
+                    <button class="form-submit-btn" type="submit">Оформить</button>
+                </div>
+            </form>
+        </div>
+        <div class="cart-checkout-info">
+            <div class="cart-checkout-info-wrapper">
+                <div class="cart-checkout-products" id="checkout-products">
+                </div>
+                <div class="cart-checkout-totals">
+                    <div class="cart-checkout-prodamount">
+                        <span class="cart-checkout-prodamount-label">Сумма: </span>
+                        <span class="cart-checkout-prodamount-amount">
+                            <span class="cart-checkout-price" id="checkout-subtotal">0</span>
+                            <span class="cart-checkout-currency">р.</span>
+                        </span>
+                    </div>
+                    <div class="cart-checkout-discounts" id="checkout-discounts" style="display: none;">
+                        <div class="cart-checkout-discounts-label">
+                            <span>Скидка:</span>
+                        </div>
+                        <div class="cart-checkout-discounts-value">
+                            <span class="cart-checkout-price" id="checkout-discount-amount">0</span>
+                            <span class="cart-checkout-currency">р.</span>
+                        </div>
+                    </div>
+                    <div class="cart-checkout-totalamount">
+                        <div class="cart-checkout-totalamount-content">
+                            <span class="cart-checkout-totalamount-label">Итоговая сумма: </span>
+                            <span class="cart-checkout-totalamount-amount">
+                                <span class="cart-checkout-price" id="checkout-total">0</span>
+                                <span class="cart-checkout-currency">р.</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="module" src="/src/main.js"></script>
 </body>
 </html>

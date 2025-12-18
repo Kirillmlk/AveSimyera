@@ -624,3 +624,124 @@ catalogCardImgs.forEach((imgElement) => {
 })
 
 renderCartItems()
+
+// Checkout page functions
+const openCheckout = () => {
+  const checkoutPage = document.getElementById('cart-checkout-page')
+  if (!checkoutPage) return
+  
+  closeCart()
+  renderCheckoutItems()
+  updateCheckoutTotals()
+  
+  checkoutPage.classList.add('cart-checkout-page--shown')
+  document.body.style.overflow = 'hidden'
+}
+
+const closeCheckout = () => {
+  const checkoutPage = document.getElementById('cart-checkout-page')
+  if (!checkoutPage) return
+  
+  checkoutPage.classList.remove('cart-checkout-page--shown')
+  document.body.style.overflow = ''
+}
+
+const renderCheckoutItems = () => {
+  const checkoutProducts = document.getElementById('checkout-products')
+  if (!checkoutProducts) return
+  
+  checkoutProducts.innerHTML = ''
+  
+  if (cartItems.length === 0) {
+    checkoutProducts.innerHTML = '<div class="text-center py-8 text-slate-500">Корзина пуста</div>'
+    return
+  }
+  
+  cartItems.forEach((item, index) => {
+    const productHtml = `
+      <div class="cart-product" data-cart-product-i="${index}">
+        <div class="cart-product-thumb">
+          <div class="cart-product-img" style="background-image:url('${item.imageUrl}');"></div>
+        </div>
+        <div class="cart-product-title t-descr t-descr_sm">
+          <a style="color: inherit" target="_blank" href="${item.productUrl}">${item.title}</a>
+          ${item.color ? `<div class="cart-product-option"><div>Цвет: ${item.color}</div></div>` : ''}
+          <div class="cart-product-controls t-descr t-descr_sm">
+            <span class="cart-product-quantity">${item.quantity}</span>
+          </div>
+        </div>
+        <div class="cart-product-amount t-descr t-descr_sm">
+          <div class="cart-checkout-price">${formatPrice(item.price * item.quantity)}</div>
+          <div class="cart-checkout-currency">р.</div>
+        </div>
+      </div>
+    `
+    checkoutProducts.insertAdjacentHTML('beforeend', productHtml)
+  })
+}
+
+const updateCheckoutTotals = () => {
+  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+  const subtotalEl = document.getElementById('checkout-subtotal')
+  const totalEl = document.getElementById('checkout-total')
+  
+  // For now, no discount calculation - can be added later
+  const total = subtotal
+  
+  if (subtotalEl) {
+    subtotalEl.textContent = formatPrice(subtotal)
+  }
+  
+  if (totalEl) {
+    totalEl.textContent = formatPrice(total)
+  }
+}
+
+// Attach checkout button handler
+const checkoutButton = document.querySelector('.cart-continue-btn')
+if (checkoutButton) {
+  checkoutButton.addEventListener('click', () => {
+    if (cartItems.length > 0) {
+      openCheckout()
+    }
+  })
+}
+
+// Attach checkout close handlers
+const checkoutBackBtn = document.getElementById('checkout-back')
+const checkoutCloseBtn = document.getElementById('checkout-close')
+
+if (checkoutBackBtn) {
+  checkoutBackBtn.addEventListener('click', () => {
+    closeCheckout()
+    openCart()
+  })
+}
+
+if (checkoutCloseBtn) {
+  checkoutCloseBtn.addEventListener('click', () => {
+    closeCheckout()
+  })
+}
+
+// Handle checkout form submission
+const checkoutForm = document.getElementById('checkout-form')
+if (checkoutForm) {
+  checkoutForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    // TODO: Add form submission logic here
+    console.log('Form submitted', new FormData(checkoutForm))
+    alert('Форма отправлена! (Это демо-версия)')
+  })
+}
+
+// Update checkout when cart changes
+const originalRenderCartItems = renderCartItems
+renderCartItems = function() {
+  originalRenderCartItems()
+  const checkoutPage = document.getElementById('cart-checkout-page')
+  if (checkoutPage && checkoutPage.classList.contains('cart-checkout-page--shown')) {
+    renderCheckoutItems()
+    updateCheckoutTotals()
+  }
+}
