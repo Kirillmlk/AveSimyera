@@ -143,12 +143,31 @@
   margin-top: 4px;
 }
 
-.cart-checkout-products .cart-product-controls {
+.cart-checkout-products .cart-product-amount .cart-product-controls {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  margin: 0;
+}
+
+.cart-checkout-products .cart-product-minus,
+.cart-checkout-products .cart-product-plus {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  transition: opacity 0.2s ease;
+  color: #6b7280;
+}
+
+.cart-checkout-products .cart-product-minus:hover,
+.cart-checkout-products .cart-product-plus:hover {
+  opacity: 0.7;
 }
 
 .cart-checkout-products .cart-product-quantity {
@@ -161,22 +180,46 @@
 .cart-checkout-products .cart-product-amount {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 12px;
   font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: center;
 }
 
 .cart-checkout-products .cart-product-amount .cart-checkout-price {
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .cart-checkout-products .cart-product-amount .cart-checkout-currency {
   font-weight: 400;
   font-size: 12px;
+}
+
+.cart-checkout-products .cart-product-delete-wrapper {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  flex-shrink: 0;
+}
+
+.cart-checkout-products .cart-product-delete {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  color: #000000;
+}
+
+.cart-checkout-products .cart-product-delete:hover {
+  background-color: #f3f4f6;
 }
 
 .cart-checkout-totals {
@@ -197,9 +240,6 @@
 }
 
 .cart-checkout-prodamount-amount {
-  display: flex;
-  align-items: center;
-  gap: 4px;
   font-weight: 600;
 }
 
@@ -230,27 +270,22 @@
 }
 
 .cart-checkout-totalamount-amount {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  font-weight: 600;
 }
 
 .cart-checkout-discounts {
-  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 14px;
+  margin-bottom: 12px;
 }
 
 .cart-checkout-discounts-label {
-  display: flex;
-  align-items: center;
-  gap: 4px;
   color: #6b7280;
 }
 
 .cart-checkout-discounts-value {
-  display: flex;
-  align-items: center;
-  gap: 4px;
   font-weight: 600;
 }
 

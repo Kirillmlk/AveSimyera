@@ -654,6 +654,7 @@ const renderCheckoutItems = () => {
   
   if (cartItems.length === 0) {
     checkoutProducts.innerHTML = '<div class="text-center py-8 text-slate-500">Корзина пуста</div>'
+    updateCheckoutTotals()
     return
   }
   
@@ -666,30 +667,101 @@ const renderCheckoutItems = () => {
         <div class="cart-product-title t-descr t-descr_sm">
           <a style="color: inherit" target="_blank" href="${item.productUrl}">${item.title}</a>
           ${item.color ? `<div class="cart-product-option"><div>Цвет: ${item.color}</div></div>` : ''}
-          <div class="cart-product-controls t-descr t-descr_sm">
-            <span class="cart-product-quantity">${item.quantity}</span>
-          </div>
         </div>
         <div class="cart-product-amount t-descr t-descr_sm">
+          <div class="cart-product-controls t-descr t-descr_sm">
+            <span class="cart-product-minus" data-product-index="${index}">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="cart-product-quantity">${item.quantity}</span>
+            <span class="cart-product-plus" data-product-index="${index}">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 5v6M5 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
           <div class="cart-checkout-price">${formatPrice(item.price * item.quantity)}</div>
           <div class="cart-checkout-currency">р.</div>
+        </div>
+        <div class="cart-product-delete-wrapper">
+          <span class="cart-product-delete" data-product-index="${index}">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
         </div>
       </div>
     `
     checkoutProducts.insertAdjacentHTML('beforeend', productHtml)
+  })
+  
+  attachCheckoutItemHandlers()
+  updateCheckoutTotals()
+}
+
+const attachCheckoutItemHandlers = () => {
+  const minusButtons = document.querySelectorAll('#checkout-products .cart-product-minus')
+  const plusButtons = document.querySelectorAll('#checkout-products .cart-product-plus')
+  const deleteButtons = document.querySelectorAll('#checkout-products .cart-product-delete')
+
+  minusButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const index = parseInt(btn.getAttribute('data-product-index'), 10)
+      if (cartItems[index] && cartItems[index].quantity > 1) {
+        cartItems[index].quantity--
+        renderCheckoutItems()
+        renderCartItems()
+      }
+    })
+  })
+
+  plusButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const index = parseInt(btn.getAttribute('data-product-index'), 10)
+      if (cartItems[index]) {
+        cartItems[index].quantity++
+        renderCheckoutItems()
+        renderCartItems()
+      }
+    })
+  })
+
+  deleteButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const index = parseInt(btn.getAttribute('data-product-index'), 10)
+      cartItems.splice(index, 1)
+      renderCheckoutItems()
+      renderCartItems()
+    })
   })
 }
 
 const updateCheckoutTotals = () => {
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
   const subtotalEl = document.getElementById('checkout-subtotal')
+  const discountEl = document.getElementById('checkout-discount-amount')
+  const discountBlock = document.getElementById('checkout-discounts')
   const totalEl = document.getElementById('checkout-total')
   
-  // For now, no discount calculation - can be added later
-  const total = subtotal
+  // Calculate discount (7% of subtotal)
+  const discount = Math.round(subtotal * 0.07)
+  const total = subtotal - discount
   
   if (subtotalEl) {
     subtotalEl.textContent = formatPrice(subtotal)
+  }
+  
+  if (discountEl) {
+    discountEl.textContent = formatPrice(discount)
+  }
+  
+  if (discountBlock) {
+    discountBlock.style.display = discount > 0 ? 'flex' : 'none'
   }
   
   if (totalEl) {
