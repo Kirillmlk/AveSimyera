@@ -11,19 +11,19 @@ https://avesimyera-f8e07f0w3-kirills-projects-f65dce77.vercel.app/
 
 Главная:
 
-![Каталог](./img2.png)
+![Каталог](./screenshots/img2.png)
 
 Карточки каталога:
 
-![Главная](./img1.png)
+![Главная](./screenshots/img1.png)
 
 Страница товара:
 
-![Страница товара](./img3.png)
+![Страница товара](./screenshots/img3.png)
 
 Каталог:
 
-![Корзина и чек-аут](./img4.png)
+![Корзина и чек-аут](./screenshots/img4.png)
 
 ## Что внутри
 - Vite (Vanilla TS) + TailwindCSS (@tailwindcss/vite).
