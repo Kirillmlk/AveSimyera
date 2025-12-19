@@ -20,8 +20,21 @@
   min-height: 640px;
 }
 
+@media (max-width: 768px) {
+  .map-height {
+    min-height: 500px;
+    height: 300px;
+  }
+}
+
 .cart-sidebar-width {
   width: 560px;
+}
+
+@media (max-width: 640px) {
+  .cart-sidebar-width {
+    width: 100%;
+  }
 }
 
 .cart-icon-size {
