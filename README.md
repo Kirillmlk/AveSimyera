@@ -5,8 +5,7 @@ Vite + Tailwind playground под будущий каталог/витрину �
 ## Деплой
 
 Продакшн-версия
-https://avesimyera-f8e07f0w3-kirills-projects-f65dce77.vercel.app/
-
+https://avesimyera.vercel.app/
 ## Скриншоты
 
 Главная:
