@@ -866,9 +866,37 @@ const initBackToTopButton = () => {
 }
 
 // Запускаем инициализацию
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-  setTimeout(initBackToTopButton, 1)
-} else {
-  window.addEventListener('load', initBackToTopButton)
-  document.addEventListener('DOMContentLoaded', initBackToTopButton)
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(initBackToTopButton, 1)
+  } else {
+    window.addEventListener('load', initBackToTopButton)
+    document.addEventListener('DOMContentLoaded', initBackToTopButton)
+  }
+
+const deliveryPaymentTabs = document.querySelectorAll('.delivery-payment-tab')
+const deliveryContent = document.getElementById('delivery-content')
+const paymentContent = document.getElementById('payment-content')
+
+if (deliveryPaymentTabs.length && deliveryContent && paymentContent) {
+  deliveryPaymentTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const tabType = tab.getAttribute('data-tab')
+      
+      deliveryPaymentTabs.forEach(t => {
+        t.classList.remove('active', 'border-black')
+        t.classList.add('border-transparent')
+      })
+      
+      tab.classList.add('active', 'border-black')
+      tab.classList.remove('border-transparent')
+      
+      if (tabType === 'delivery') {
+        deliveryContent.classList.remove('hidden')
+        paymentContent.classList.add('hidden')
+      } else if (tabType === 'payment') {
+        deliveryContent.classList.add('hidden')
+        paymentContent.classList.remove('hidden')
+      }
+    })
+  })
 }
