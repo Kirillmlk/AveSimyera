@@ -816,3 +816,18 @@ renderCartItems = function() {
     updateCheckoutTotals()
   }
 }
+
+// Кнопка "наверх" - всегда видима
+const backToTopButton = document.getElementById('back-to-top')
+
+if (backToTopButton) {
+  // Кнопка всегда видима, убираем логику показа/скрытия
+  backToTopButton.style.opacity = '1'
+  backToTopButton.style.pointerEvents = 'auto'
+  
+  // Плавная прокрутка наверх при клике
+  backToTopButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    smoothScrollTo(0, 800)
+  })
+}
