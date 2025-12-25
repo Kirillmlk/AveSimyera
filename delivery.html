@@ -177,7 +177,7 @@
                         </div>
                     </div>
 
-                    <div class="border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer">
+                    <div class="border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer" data-open-modal="samovyvoz">
                         <div class="mb-4 flex items-center justify-center h-24 bg-slate-50 rounded-md">
                             <svg class="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
@@ -266,7 +266,6 @@
     </section>
 </main>
 
-<!-- Modal: Доставка курьером -->
 <div id="dostavka-kurerom" class="fixed inset-0 z-[9999] items-center justify-center bg-black/50 backdrop-blur-sm" style="display: none;">
     <div class="relative w-full max-w-3xl max-h-[90vh] mx-4 bg-white rounded-lg shadow-xl overflow-hidden" onclick="event.stopPropagation()">
         <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200">
@@ -348,6 +347,39 @@
     </div>
 </div>
 
+<div id="samovyvoz" class="fixed inset-0 z-[9999] items-center justify-center bg-black/50 backdrop-blur-sm" style="display: none;">
+    <div class="relative w-full max-w-3xl max-h-[90vh] mx-4 bg-white rounded-lg shadow-xl overflow-hidden" onclick="event.stopPropagation()">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200">
+            <h2 class="text-xl font-semibold">Самовывоз</h2>
+            <button class="modal-close text-slate-500 hover:text-slate-700 transition-colors" type="button" aria-label="Закрыть">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="overflow-y-auto max-h-[calc(90vh-80px)] px-6 py-6">
+            <div class="space-y-6">
+                <div class="text-sm text-slate-700 space-y-3">
+                    <p>Вы можете забрать товар по Вашему заказу со склада только при полной оплате по адресу: г. Москва, ул. Примерная, д.1 согласно графику работы склада или в любом салоне в городах: Москва, Санкт-Петербург, Нижний Новгород, Казань, Екатеринбург.</p>
+                    <p>Перед посещением наших салонов или склада необходимо согласовать детали заказа с менеджером Интернет-магазина:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>получить подтверждение о наличии товара в предпочтительном Вам салоне или складе;</li>
+                        <li>получить номер заказа;</li>
+                        <li>согласовать время, в которое Вам удобно будет забрать заказ.</li>
+                    </ul>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200">
+                    <h3 class="text-lg font-semibold mb-4">Правила оказания услуги</h3>
+                    <div class="text-sm text-slate-700 space-y-2">
+                        <p>При самовывозе товара со склада нужно заранее оплатить товар. Самовывоз товара осуществляется согласно графику работы склада.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="bg-black text-white py-8 mt-10">
     <div class="max-w-6xl mx-auto px-5 md:px-10">
         <div class="flex flex-col items-center gap-4">
@@ -384,7 +416,6 @@
 </a>
 
 <script>
-// Modal functionality
 function openModal(modalId) {
   const modal = document.getElementById(modalId)
   if (modal) {
@@ -403,7 +434,6 @@ function closeModal(modalId) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Add click handlers to triggers
   document.querySelectorAll('[data-open-modal]').forEach(trigger => {
     const modalId = trigger.getAttribute('data-open-modal')
     if (modalId) {
@@ -415,29 +445,38 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   })
 
-  // Close modal on backdrop click
-  const modal = document.getElementById('dostavka-kurerom')
-  if (modal) {
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) {
-        closeModal('dostavka-kurerom')
-      }
-    })
-  }
+  const modals = ['dostavka-kurerom', 'samovyvoz']
+  
+  modals.forEach(modalId => {
+    const modal = document.getElementById(modalId)
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal(modalId)
+        }
+      })
+    }
+  })
 
-  // Close modal on close button click
   document.querySelectorAll('.modal-close').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault()
       e.stopPropagation()
-      closeModal('dostavka-kurerom')
+      const modal = btn.closest('[id^="dostavka-"], [id^="samovyvoz-"], [id="samovyvoz"]')
+      if (modal) {
+        closeModal(modal.id)
+      }
     })
   })
 
-  // Close modal on Escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-      closeModal('dostavka-kurerom')
+      modals.forEach(modalId => {
+        const modal = document.getElementById(modalId)
+        if (modal && modal.style.display === 'flex') {
+          closeModal(modalId)
+        }
+      })
     }
   })
 })
