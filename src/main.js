@@ -900,3 +900,4 @@ if (deliveryPaymentTabs.length && deliveryContent && paymentContent) {
     })
   })
 }
+

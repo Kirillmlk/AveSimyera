@@ -152,16 +152,18 @@
             <div class="delivery-content" id="delivery-content">
                 <div class="mb-6">
                     <select class="w-full max-w-xs px-4 py-2 border border-slate-300 rounded-md text-sm focus:outline-none focus:border-black">
-                        <option>Чебоксары</option>
                         <option>Москва</option>
                         <option>Санкт-Петербург</option>
+                        <option>Нижний Новгород</option>
+                        <option>Казань</option>
+                        <option>Екатеринбург</option>
                     </select>
                 </div>
 
                 <h3 class="text-xl font-semibold mb-6">Любые товары с сайта</h3>
 
                 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12">
-                    <div class="border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer">
+                    <div class="border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer" data-open-modal="dostavka-kurerom">
                         <div class="mb-4 flex items-center justify-center h-24 bg-slate-50 rounded-md">
                             <svg class="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -169,9 +171,9 @@
                         </div>
                         <h4 class="text-lg font-semibold mb-2 text-center">Доставка курьером</h4>
                         <div class="text-sm text-slate-600 space-y-1">
-                            <p>Доставка в пределах города до 500 руб. - 250 руб.</p>
+                            <p>Доставка в пределах города до 500 руб. - 300 руб.</p>
                             <p>Доставка от 500 руб. - бесплатно</p>
-                            <p>За пределами города - 1,2 руб. за 1 км</p>
+                            <p>За пределами города - 50 руб. за 1 км</p>
                         </div>
                     </div>
 
@@ -184,7 +186,7 @@
                         <h4 class="text-lg font-semibold mb-2 text-center">Самовывоз</h4>
                         <div class="text-sm text-slate-600 space-y-1">
                             <p>Бесплатный самовывоз со склада</p>
-                            <p>г. Чебоксары, ул. Пирогова, д.6</p>
+                            <p>г. Москва, ул. Примерная, д.1</p>
                             <p>Согласование времени с менеджером</p>
                         </div>
                     </div>
@@ -199,7 +201,7 @@
                         </div>
                         <div class="flex justify-between items-start">
                             <span class="font-medium">Другие города:</span>
-                            <span class="text-slate-600">3–8 рабочих дней</span>
+                            <span class="text-slate-600">5–10 рабочих дней</span>
                         </div>
                         <p class="text-slate-600 mt-4">Сроки доставки и изготовления фиксируются при подписании договора и дополнительно согласовываются при поступлении товара на склад.</p>
                     </div>
@@ -209,9 +211,11 @@
             <div class="payment-content hidden" id="payment-content">
                 <div class="mb-6">
                     <select class="w-full max-w-xs px-4 py-2 border border-slate-300 rounded-md text-sm focus:outline-none focus:border-black">
-                        <option>Чебоксары</option>
                         <option>Москва</option>
                         <option>Санкт-Петербург</option>
+                        <option>Нижний Новгород</option>
+                        <option>Казань</option>
+                        <option>Екатеринбург</option>
                     </select>
                 </div>
 
@@ -262,6 +266,88 @@
     </section>
 </main>
 
+<!-- Modal: Доставка курьером -->
+<div id="dostavka-kurerom" class="fixed inset-0 z-[9999] items-center justify-center bg-black/50 backdrop-blur-sm" style="display: none;">
+    <div class="relative w-full max-w-3xl max-h-[90vh] mx-4 bg-white rounded-lg shadow-xl overflow-hidden" onclick="event.stopPropagation()">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200">
+            <h2 class="text-xl font-semibold">Доставка курьером</h2>
+            <button class="modal-close text-slate-500 hover:text-slate-700 transition-colors" type="button" aria-label="Закрыть">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="overflow-y-auto max-h-[calc(90vh-80px)] px-6 py-6">
+            <div class="space-y-6">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-start py-3 border-b border-slate-100">
+                        <span class="text-sm text-slate-700 flex-1 pr-4">
+                            Доставка в пределах территории городов Москва, Санкт-Петербург, Нижний Новгород, Казань, Екатеринбург до 500 руб. -
+                        </span>
+                        <span class="text-sm font-medium text-slate-900 whitespace-nowrap">300 руб.</span>
+                    </div>
+                    <div class="flex justify-between items-start py-3 border-b border-slate-100">
+                        <span class="text-sm text-slate-700 flex-1 pr-4">
+                            Доставка в перечисленных городах от 500 руб. -
+                        </span>
+                        <span class="text-sm font-medium text-slate-900 whitespace-nowrap">бесплатно</span>
+                    </div>
+                    <div class="flex justify-between items-start py-3 border-b border-slate-100">
+                        <span class="text-sm text-slate-700 flex-1 pr-4">
+                            Доставка за пределами города (удаленность от МКАД/КАД города, в котором находится фирменный салон) при сумме заказа до 500 руб. -
+                        </span>
+                        <span class="text-sm font-medium text-slate-900 whitespace-nowrap">300 руб. + 50 руб. за 1 км</span>
+                    </div>
+                    <div class="flex justify-between items-start py-3 border-b border-slate-100">
+                        <span class="text-sm text-slate-700 flex-1 pr-4">
+                            Доставка за пределами города (удаленность от МКАД/КАД города, в котором находится фирменный салон) при сумме заказа от 500 руб. -
+                        </span>
+                        <span class="text-sm font-medium text-slate-900 whitespace-nowrap">50 руб. за 1 км</span>
+                    </div>
+                    <div class="flex justify-between items-start py-3 border-b border-slate-100">
+                        <span class="text-sm text-slate-700 flex-1 pr-4">
+                            Повторная доставка в пределах города (+ 20 км от МКАД/КАД города, в котором находится фирменный салон) 
+                        </span>
+                        <span class="text-sm font-medium text-slate-900 whitespace-nowrap">300 руб.</span>
+                    </div>
+                    <div class="flex justify-between items-start py-3 border-b border-slate-100">
+                        <span class="text-sm text-slate-700 flex-1 pr-4">
+                            Повторная доставка за пределами города (удаленность от 20 км МКАД/КАД города, в котором находится фирменный салон) 
+                        </span>
+                        <span class="text-sm font-medium text-slate-900 whitespace-nowrap">300 руб. + 50 руб. за 1 км</span>
+                    </div>
+                    <div class="flex justify-between items-start py-3 border-b border-slate-100">
+                        <span class="text-sm text-slate-700 flex-1 pr-4">
+                            Доставка к определенному времени в пределах города Москвы (+ 20 км от МКАД) 
+                        </span>
+                        <span class="text-sm font-medium text-slate-900 whitespace-nowrap">500 руб. (согласовывается временная рамка от получаса до часа)</span>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200">
+                    <h3 class="text-lg font-semibold mb-4">Сроки доставки</h3>
+                    <div class="space-y-3">
+                        <div class="text-sm text-slate-600 py-2">
+                            При наличии товара на складе в Москве
+                        </div>
+                        <div class="flex justify-between items-start py-2 border-b border-slate-100">
+                            <span class="text-sm text-slate-700 font-medium">По Москве и до 20 км от МКАД</span>
+                            <span class="text-sm text-slate-600 text-right ml-4 max-w-xs">доставка Товара (ПРИ ЕГО НАЛИЧИИ В ВАШЕМ ГОРОДЕ) до 5 дней, в иных случаях сроки доставки определены в разделе «Сроки доставки»</span>
+                        </div>
+                        <div class="flex justify-between items-start py-2 border-b border-slate-100">
+                            <span class="text-sm text-slate-700 font-medium">Санкт-Петербург, Нижний Новгород, Казань, Екатеринбург и другие города</span>
+                            <span class="text-sm text-slate-600 whitespace-nowrap ml-4">5–10 рабочих дней</span>
+                        </div>
+                        <div class="text-sm text-slate-600 py-2">
+                            Сроки доставки и изготовления фиксируются при подписании договора и дополнительно согласовываются при поступлении товара на склад.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="bg-black text-white py-8 mt-10">
     <div class="max-w-6xl mx-auto px-5 md:px-10">
         <div class="flex flex-col items-center gap-4">
@@ -274,6 +360,9 @@
                 </a>
                 <a href="/about.html" class="px-4 py-2 text-sm text-white/80 hover:text-white transition-all duration-200 no-underline cursor-pointer">
                     Правила торговли
+                </a>
+                <a href="/delivery.html" class="px-4 py-2 text-sm text-white/80 hover:text-white transition-all duration-200 no-underline cursor-pointer">
+                    Доставка
                 </a>
                 <a href="/contacts.html" class="px-4 py-2 text-sm text-white/80 hover:text-white transition-all duration-200 no-underline cursor-pointer">
                     Контакты
@@ -294,6 +383,65 @@
     </svg>
 </a>
 
+<script>
+// Modal functionality
+function openModal(modalId) {
+  const modal = document.getElementById(modalId)
+  if (modal) {
+    modal.style.display = 'flex'
+    modal.style.zIndex = '9999'
+    document.body.style.overflow = 'hidden'
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId)
+  if (modal) {
+    modal.style.display = 'none'
+    document.body.style.overflow = ''
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Add click handlers to triggers
+  document.querySelectorAll('[data-open-modal]').forEach(trigger => {
+    const modalId = trigger.getAttribute('data-open-modal')
+    if (modalId) {
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        openModal(modalId)
+      })
+    }
+  })
+
+  // Close modal on backdrop click
+  const modal = document.getElementById('dostavka-kurerom')
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal('dostavka-kurerom')
+      }
+    })
+  }
+
+  // Close modal on close button click
+  document.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault()
+      e.stopPropagation()
+      closeModal('dostavka-kurerom')
+    })
+  })
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal('dostavka-kurerom')
+    }
+  })
+})
+</script>
 <script type="module" src="/src/main.js"></script>
 </body>
 </html>
