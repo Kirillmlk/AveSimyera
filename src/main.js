@@ -817,17 +817,58 @@ renderCartItems = function() {
   }
 }
 
-// Кнопка "наверх" - всегда видима
-const backToTopButton = document.getElementById('back-to-top')
-
-if (backToTopButton) {
-  // Кнопка всегда видима, убираем логику показа/скрытия
-  backToTopButton.style.opacity = '1'
-  backToTopButton.style.pointerEvents = 'auto'
+// Кнопка "наверх" - инициализация после полной загрузки
+const initBackToTopButton = () => {
+  const backToTopButton = document.getElementById('back-to-top')
   
-  // Плавная прокрутка наверх при клике
+  if (!backToTopButton) {
+    // Если кнопка не найдена, попробуем ещё раз через небольшую задержку
+    setTimeout(initBackToTopButton, 100)
+    return
+  }
+  
+  // Убеждаемся, что кнопка видима
+  backToTopButton.style.display = 'flex'
+  backToTopButton.style.position = 'fixed'
+  backToTopButton.style.zIndex = '9999'
+  
+  // Показывать/скрывать кнопку при прокрутке
+  const toggleBackToTop = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0
+    
+    if (scrollTop > 100) {
+      backToTopButton.style.opacity = '1'
+      backToTopButton.style.pointerEvents = 'auto'
+    } else {
+      backToTopButton.style.opacity = '0'
+      backToTopButton.style.pointerEvents = 'none'
+    }
+  }
+
+  // Изначально скрываем
+  backToTopButton.style.opacity = '0'
+  backToTopButton.style.pointerEvents = 'none'
+  
+  // Проверяем сразу и при загрузке
+  toggleBackToTop()
+  
+  // Слушаем события прокрутки
+  window.addEventListener('scroll', toggleBackToTop, { passive: true })
+  
   backToTopButton.addEventListener('click', (e) => {
     e.preventDefault()
-    smoothScrollTo(0, 800)
+    
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   })
+}
+
+// Запускаем инициализацию
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  setTimeout(initBackToTopButton, 1)
+} else {
+  window.addEventListener('load', initBackToTopButton)
+  document.addEventListener('DOMContentLoaded', initBackToTopButton)
 }
