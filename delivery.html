@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Оплата и доставка — AveSimyera</title>
+    <title>Доставка — AveSimyera</title>
   </head>
 <body class="bg-white text-slate-900">
 <header class="bg-black border-b border-black md:bg-white md:border-slate-200">
@@ -138,16 +138,7 @@
 <main class="min-h-screen py-10 md:py-16">
     <section class="py-10 md:py-16">
         <div class="max-w-6xl mx-auto px-5 md:px-10">
-            <h1 class="text-3xl md:text-4xl font-semibold mb-8 md:mb-12">Оплата и доставка</h1>
-            
-            <div class="flex gap-4 mb-8 border-b border-slate-200">
-                <button class="px-6 py-3 text-base font-medium border-b-2 border-black transition-colors delivery-payment-tab active" data-tab="delivery">
-                    Доставка
-                </button>
-                <button class="px-6 py-3 text-base font-medium border-b-2 border-transparent hover:border-slate-300 transition-colors delivery-payment-tab" data-tab="payment">
-                    Оплата
-                </button>
-            </div>
+            <h1 class="text-3xl md:text-4xl font-semibold mb-8 md:mb-12">Доставка</h1>
 
             <div class="delivery-content" id="delivery-content">
                 <div class="mb-6">
@@ -204,61 +195,6 @@
                             <span class="text-slate-600">5–10 рабочих дней</span>
                         </div>
                         <p class="text-slate-600 mt-4">Сроки доставки и изготовления фиксируются при подписании договора и дополнительно согласовываются при поступлении товара на склад.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="payment-content hidden" id="payment-content">
-                <div class="mb-6">
-                    <select class="w-full max-w-xs px-4 py-2 border border-slate-300 rounded-md text-sm focus:outline-none focus:border-black">
-                        <option>Москва</option>
-                        <option>Санкт-Петербург</option>
-                        <option>Нижний Новгород</option>
-                        <option>Казань</option>
-                        <option>Екатеринбург</option>
-                    </select>
-                </div>
-
-                <h3 class="text-xl font-semibold mb-6">Любые товары с сайта</h3>
-
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12">
-                    <div class="border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer">
-                        <div class="mb-4 flex items-center justify-center h-24 bg-slate-50 rounded-md">
-                            <svg class="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
-                            </svg>
-                        </div>
-                        <h4 class="text-lg font-semibold mb-2 text-center">Онлайн на сайте</h4>
-                        <div class="text-sm text-slate-600 text-center">
-                            <p>Банковской картой</p>
-                            <p>При получении товара</p>
-                        </div>
-                    </div>
-
-                    <div class="border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer">
-                        <div class="mb-4 flex items-center justify-center h-24 bg-slate-50 rounded-md">
-                            <svg class="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-                            </svg>
-                        </div>
-                        <h4 class="text-lg font-semibold mb-2 text-center">Банковский перевод</h4>
-                        <div class="text-sm text-slate-600 text-center">
-                            <p>По реквизитам</p>
-                            <p>После оформления заказа</p>
-                        </div>
-                    </div>
-
-                    <div class="border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer">
-                        <div class="mb-4 flex items-center justify-center h-24 bg-slate-50 rounded-md">
-                            <svg class="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h4 class="text-lg font-semibold mb-2 text-center">Рассрочка</h4>
-                        <div class="text-sm text-slate-600 text-center">
-                            <p>Условия уточняйте</p>
-                            <p>при оформлении заказа</p>
-                        </div>
                     </div>
                 </div>
             </div>
